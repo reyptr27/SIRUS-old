@@ -1,0 +1,13 @@
+/* Add here all your CSS customizations */
+th{
+	text-align: center;
+}
+
+.body-sign {
+	display: table;
+	height: 100vh;
+	margin: 0 auto;
+	max-width: 800px;
+	padding: 0 15px;
+	width: 100%;
+}
