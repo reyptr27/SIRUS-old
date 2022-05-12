@@ -68,25 +68,28 @@
         </tr>
     </table>
     <p>
-        Tidak masuk kantor pada tanggal <u>@if($form->tanggal_awal == $form->tanggal_akhir){{ date('d-m-Y', strtotime($form->tanggal_awal)) }}@else {{ date('d-m-Y', strtotime($form->tanggal_awal)) }} s/d {{ date('d-m-Y', strtotime($form->tanggal_akhir)) }}@endif</u> dikarenakan
-        <u>{{ $form->alasan }}</u>
+        Tidak masuk kantor pada tanggal <u>@if($form->tanggal_awal == $form->tanggal_akhir){{ date('d-m-Y', strtotime($form->tanggal_awal)) }}@else {{ date('d-m-Y', strtotime($form->tanggal_awal)) }}</u> s/d <u>{{ date('d-m-Y', strtotime($form->tanggal_akhir)) }}@endif</u> karena
+        <u>{{ $form->alasan }}</u>, belum memiliki hak cuti/ tidak memiliki hak cuti 
     </p>
-    <p>Sehubungan dengan ketidak hadiran saya tersebut di atas saya bersedia dipotong gaji (unpaid leave) karena saya belum berhak mendapatkan hak cuti.</p>
+    <p>Sehubungan dengan ketidakhadiran saya tersebut diatas saya bersedia dipotong gaji (unpaid leave).<br>
+        Bila sewaktu - waktu ada perubahan ketentuan dari internal /eksternal, sehubungan dengan cuti karyawan,<br>
+        saya tetap menyetujui unpaid leave yang sudah saya tanda tangani ini.
+    </p><br>
     <p>Mohon dapat dimaklumi, atas perhatian dan kerjasamanya diucapkan terima kasih.</p>
     <br><br>
     <table width="100%">
         <tr>
             <td align="center">Hormat saya,</td>
             <td align="center">Mengetahui,</td>
-            <td align="center">Menyetujui,</td>
+            {{-- <td align="center">Menyetujui,</td> --}}
         </tr>
         <tr>
-            <td colspan="3"><br><br><br><br><br></td>
+            <td colspan="2"><br><br><br><br><br></td>
         </tr>
         <tr>
             <td align="center">( {{ $karyawan->name }} )</td>
             <td align="center">( {{ $atasan->name }} )</td>
-            <td align="center">( HRD )</td>
+            {{-- <td align="center">( HRD )</td> --}}
         </tr>
     </table>
 </body>

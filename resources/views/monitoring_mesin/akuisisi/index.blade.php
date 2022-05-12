@@ -39,9 +39,9 @@
                                 <label for="">Kategori</label>
                                 <select name="filter_kategori" id="filter_kategori" class="form-control select2">
                                     <option value="">All</option>
-                                    <option value="Penambahan">Penambahan</option>
-                                    <option value="Penggantian">Penggantian</option>
-                                    <option value="Peminjaman">Peminjaman</option>
+                                    <option value="1">Penambahan</option>
+                                    <option value="2">Penggantian</option>
+                                    <option value="3">Peminjaman</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -57,8 +57,8 @@
                                 <label for="">Status Akuisisi</label>
                                 <select name="filter_status" id="filter_status" class="form-control select2">
                                     <option value="">All</option>
-                                    <option value="Process">Process</option>
-                                    <option value="Done">Done</option>
+                                    <option value="1">Process</option>
+                                    <option value="2">Done</option>
                                 </select>
                             </div>
                         </div>
@@ -101,17 +101,17 @@
                 serverSide: true,
                 ajax: '{{ route('monitoringmesin.akuisisi.json') }}',
                 columns: [
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'header.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'nomor', name: 'nomor'},
-                    { data: 'kategori', name: 'kategori', className: "text-center"},
-                    { data: 'customer', name: 'customer'},
-                    { data: 'tgl_plan_kirim', name: 'tgl_plan_kirim'},
-                    { data: 'tgl_plan_instalasi', name: 'tgl_plan_instalasi'},
-                    { data: 'tgl_kirim', name: 'tgl_kirim'},
-                    { data: 'tgl_instalasi', name: 'tgl_instalasi'},
-                    { data: 'tgl_bast', name: 'tgl_bast'},
-                    { data: 'akuisisi', name: 'akuisisi', className: "text-center"},
+                    { data: 'nomor', name: 'header.nomor'},
+                    { data: 'kategori', name: 'header.kategori', className: "text-center"},
+                    { data: 'customer', name: 'customer.nama_rs'},
+                    { data: 'tgl_plan_kirim', name: 'header.tgl_plan_kirim'},
+                    { data: 'tgl_plan_instalasi', name: 'header.tgl_plan_instalasi'},
+                    { data: 'tgl_kirim', name: 'header.tgl_kirim'},
+                    { data: 'tgl_instalasi', name: 'header.tgl_instalasi'},
+                    { data: 'tgl_bast', name: 'header.tgl_bast'},
+                    { data: 'akuisisi', name: 'header.akuisisi', className: "text-center"},
                     { data: 'upload', name: 'upload', className: "text-center"},
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],

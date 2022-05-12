@@ -23,10 +23,9 @@ class AkuisisiMesinController extends Controller
             ->leftJoin('tam_ba_rs as customer', 'customer.id', '=', 'header.customer_id')
             ->leftJoin('users as creator', 'creator.id', '=', 'header.created_by')
             ->leftJoin('users as updater', 'updater.id', '=', 'header.updated_by')
-            ->select([
-               'header.*','customer.nama_rs as customer','creator.name as creator','updater.name as updater'        
-            ])->where([['header.delete_status','=', 1],['header.status','=',4]])
-        ->get();
+        ->select([
+            'header.*','customer.nama_rs as customer','creator.name as creator','updater.name as updater'        
+        ])->where([['header.delete_status','=', 1],['header.status','=',4]]);
 
         return DataTables::of($model)
             ->addIndexColumn()

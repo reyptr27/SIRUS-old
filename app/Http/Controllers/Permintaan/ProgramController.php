@@ -35,7 +35,7 @@ class ProgramController extends Controller
                          'officer.name as officer',
                          'pembuat.name as pembuat','updater.name as updater',
                          'kadept.name as kadept'
-                    ])->get();
+                    ]);
         }
         else
         {
@@ -57,7 +57,7 @@ class ProgramController extends Controller
                          'kadept.name as kadept'
             ])->where('program.pemohon_id','=',$login->id)
             ->orwhere('program.created_by','=',$login->id)
-            ->orwhere('pembuat.atasan_id','=',$login->id)->get();
+            ->orwhere('pembuat.atasan_id','=',$login->id);
         
         }
         return DataTables::of($program)

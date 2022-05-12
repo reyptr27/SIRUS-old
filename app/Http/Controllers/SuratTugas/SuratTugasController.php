@@ -20,10 +20,9 @@ class SuratTugasController extends Controller
 
         if($user->hasPermissionTo('surat-tugas-all')){
             $surat = DB::table('surat_tugas')
-                    ->select([
-                    '*'
-                    ])
-                    ->get();
+            ->select([
+            '*'
+            ]);
             
             return DataTables::of($surat)
                 ->addIndexColumn()
@@ -43,10 +42,9 @@ class SuratTugasController extends Controller
             ->make(true);
         }else{
             $surat = DB::table('surat_tugas')
-                    ->select([
-                    '*'
-                    ])->where(['created_by' => $user->id])
-                    ->get();
+            ->select([
+            '*'
+            ])->where(['created_by' => $user->id]);
             
             return DataTables::of($surat)
                 ->addIndexColumn()

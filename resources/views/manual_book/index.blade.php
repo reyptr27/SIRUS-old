@@ -68,13 +68,13 @@
                 serverSide: true,
                 ajax: '{{ route('manualbook.json') }}',
                 columns: [
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'mb.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
                     { data: 'cover_image', name: 'cover_image', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'judul', name: 'judul'},
+                    { data: 'judul', name: 'mb.judul'},
                     { data: 'kol-dept', name: 'kol-dept'},
-                    { data: 'creator', name: 'creator'},
-                    { data: 'created_at', name: 'created_at'},
+                    { data: 'creator', name: 'c.name'},
+                    { data: 'created_at', name: 'mb.created_at'},
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

@@ -20,30 +20,28 @@ class CeklabController extends Controller
         $login = Auth::user();
         if($login->hasPermissionTo('tam-ba-all')){
             $ba = DB::table('tam_ceklab')
-                ->leftJoin('users as pemohon', 'tam_ceklab.pemohon_id', '=', 'pemohon.id')
-                ->leftJoin('users as pembuat', 'tam_ceklab.created_by', '=', 'pembuat.id')
-                ->leftJoin('users as updater', 'tam_ceklab.updated_by', '=', 'updater.id')
-                ->leftJoin('tam_ba_rs as rumah_sakit', 'tam_ceklab.rs_id', '=', 'rumah_sakit.id')
-                        ->select([
-                            'tam_ceklab.*','pemohon.name as pemohon','pemohon.jabatan as jabatan', 
-                            'rumah_sakit.nama_rs as nama_rs',
-                            'pembuat.name as pembuat','updater.name as updater'
-                        ])        
-                ->get();
+            ->leftJoin('users as pemohon', 'tam_ceklab.pemohon_id', '=', 'pemohon.id')
+            ->leftJoin('users as pembuat', 'tam_ceklab.created_by', '=', 'pembuat.id')
+            ->leftJoin('users as updater', 'tam_ceklab.updated_by', '=', 'updater.id')
+            ->leftJoin('tam_ba_rs as rumah_sakit', 'tam_ceklab.rs_id', '=', 'rumah_sakit.id')
+            ->select([
+                'tam_ceklab.*','pemohon.name as pemohon','pemohon.jabatan as jabatan', 
+                'rumah_sakit.nama_rs as nama_rs',
+                'pembuat.name as pembuat','updater.name as updater'
+            ]);
         }else{
 
             $ba = DB::table('tam_ceklab')
-                ->leftJoin('users as pemohon', 'tam_ceklab.pemohon_id', '=', 'pemohon.id')
-                ->leftJoin('users as pembuat', 'tam_ceklab.created_by', '=', 'pembuat.id')
-                ->leftJoin('users as updater', 'tam_ceklab.updated_by', '=', 'updater.id')
-                ->leftJoin('tam_ba_rs as rumah_sakit', 'tam_ceklab.rs_id', '=', 'rumah_sakit.id')
-                        ->select([
-                            'tam_ceklab.*','pemohon.name as pemohon','pemohon.jabatan as jabatan', 
-                            'rumah_sakit.nama_rs as nama_rs',
-                            'pembuat.name as pembuat','updater.name as updater'
-                        ])  
-                        ->where('tam_ceklab.cabang_id','=',$login->cabang_id)                                                
-                ->get();
+            ->leftJoin('users as pemohon', 'tam_ceklab.pemohon_id', '=', 'pemohon.id')
+            ->leftJoin('users as pembuat', 'tam_ceklab.created_by', '=', 'pembuat.id')
+            ->leftJoin('users as updater', 'tam_ceklab.updated_by', '=', 'updater.id')
+            ->leftJoin('tam_ba_rs as rumah_sakit', 'tam_ceklab.rs_id', '=', 'rumah_sakit.id')
+            ->select([
+                'tam_ceklab.*','pemohon.name as pemohon','pemohon.jabatan as jabatan', 
+                'rumah_sakit.nama_rs as nama_rs',
+                'pembuat.name as pembuat','updater.name as updater'
+            ])  
+            ->where('tam_ceklab.cabang_id','=',$login->cabang_id);
         }
                         
         return DataTables::of($ba)

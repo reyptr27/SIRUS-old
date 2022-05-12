@@ -17,10 +17,9 @@ class ApprovalController extends Controller
 {
     public function json(){
         $surat = DB::table('surat_tugas')
-                ->select([
-                   '*'
-                ])->where(['approval' => 1])
-                ->get();
+        ->select([
+            '*'
+        ])->where(['approval' => 1]);
         
         return DataTables::of($surat)
             ->addIndexColumn()

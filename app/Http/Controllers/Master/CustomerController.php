@@ -18,7 +18,7 @@ class CustomerController extends Controller
                     'cus.nama_customer', 'cus.alamat', 'cus.kota', 'cus.up','cus.va', 'cus.status',
                     'cus.created_at', 'users.name as created_by', 'cus.updated_at', 'cus.id',
                     'updater.name as updated_by'
-                ])->get();
+                ]);
         
         return DataTables::of($customer)
             ->addIndexColumn()

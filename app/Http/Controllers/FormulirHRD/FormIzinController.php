@@ -15,50 +15,47 @@ class FormIzinController extends Controller
 
         if($user->hasPermissionTo('hrd-formulir-all')){
             $form = DB::table('hrd_izin')
-                ->leftJoin('users', 'users.id', '=', 'hrd_izin.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_izin.created_by')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_izin.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_izin.tanggal','hrd_izin.keperluan','hrd_izin.jam_masuk',
-                   'hrd_izin.jam_keluar', 'hrd_izin.keterangan','hrd_izin.nama_tujuan','hrd_izin.up_tujuan',
-                   'hrd_izin.tujuan_kunjungan','hrd_izin.informasi_tambahan','creator.name as pembuat','hrd_izin.created_at','hrd_izin.upload_file'
-                ])
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_izin.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_izin.created_by')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_izin.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_izin.tanggal','hrd_izin.keperluan','hrd_izin.jam_masuk',
+                'hrd_izin.jam_keluar', 'hrd_izin.keterangan','hrd_izin.nama_tujuan','hrd_izin.up_tujuan',
+                'hrd_izin.tujuan_kunjungan','hrd_izin.informasi_tambahan','creator.name as pembuat','hrd_izin.created_at','hrd_izin.upload_file'
+            ]);
         }elseif($user->hasPermissionTo('hrd-formulir-pic'))
         {
             $form = DB::table('hrd_izin')
-                ->leftJoin('users', 'users.id', '=', 'hrd_izin.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_izin.created_by')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_izin.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan', 'users.atasan_id',
-                   'm_cabang.nama_cabang', 'hrd_izin.tanggal','hrd_izin.keperluan','hrd_izin.jam_masuk',
-                   'hrd_izin.jam_keluar', 'hrd_izin.keterangan','hrd_izin.nama_tujuan','hrd_izin.up_tujuan',
-                   'hrd_izin.tujuan_kunjungan','hrd_izin.informasi_tambahan','creator.name as pembuat','hrd_izin.created_at','hrd_izin.upload_file'
-                ])->where('hrd_izin.created_by', '=', $user->id)
-                ->orwhere('hrd_izin.karyawan_id', '=', $user->id)
-                ->orwhere('users.atasan_id', '=', $user->id)
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_izin.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_izin.created_by')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_izin.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan', 'users.atasan_id',
+                'm_cabang.nama_cabang', 'hrd_izin.tanggal','hrd_izin.keperluan','hrd_izin.jam_masuk',
+                'hrd_izin.jam_keluar', 'hrd_izin.keterangan','hrd_izin.nama_tujuan','hrd_izin.up_tujuan',
+                'hrd_izin.tujuan_kunjungan','hrd_izin.informasi_tambahan','creator.name as pembuat','hrd_izin.created_at','hrd_izin.upload_file'
+            ])->where('hrd_izin.created_by', '=', $user->id)
+            ->orwhere('hrd_izin.karyawan_id', '=', $user->id)
+            ->orwhere('users.atasan_id', '=', $user->id);
         }else{
             $form = DB::table('hrd_izin')
-                ->leftJoin('users', 'users.id', '=', 'hrd_izin.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_izin.created_by')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_izin.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_izin.tanggal','hrd_izin.keperluan','hrd_izin.jam_masuk',
-                   'hrd_izin.jam_keluar', 'hrd_izin.keterangan','hrd_izin.nama_tujuan','hrd_izin.up_tujuan',
-                   'hrd_izin.tujuan_kunjungan','hrd_izin.informasi_tambahan','creator.name as pembuat','hrd_izin.created_at','hrd_izin.upload_file'
-                ])->where('hrd_izin.created_by', '=', $user->id)
-                ->orwhere('hrd_izin.karyawan_id', '=', $user->id)
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_izin.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_izin.created_by')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_izin.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_izin.tanggal','hrd_izin.keperluan','hrd_izin.jam_masuk',
+                'hrd_izin.jam_keluar', 'hrd_izin.keterangan','hrd_izin.nama_tujuan','hrd_izin.up_tujuan',
+                'hrd_izin.tujuan_kunjungan','hrd_izin.informasi_tambahan','creator.name as pembuat','hrd_izin.created_at','hrd_izin.upload_file'
+            ])->where('hrd_izin.created_by', '=', $user->id)
+            ->orwhere('hrd_izin.karyawan_id', '=', $user->id);
         }
 
         

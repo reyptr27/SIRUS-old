@@ -93,7 +93,7 @@ class SuratNHDController extends Controller
                 ->select([
                     'surat_nhd.id','surat_nhd.no_surat','surat_nhd.created_at',
                     'surat_nhd.keterangan','tujuan_nhd.nama_tujuan','kategori_nhd.kategori','users.name'
-                ])->get();
+                ]);
         
         return DataTables::of($surat)
             ->addIndexColumn()

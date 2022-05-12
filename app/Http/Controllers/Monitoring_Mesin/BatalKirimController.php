@@ -16,10 +16,9 @@ class BatalKirimController extends Controller
             ->leftJoin('users as creator', 'creator.id', '=', 'header.created_by')
             ->leftJoin('users as updater', 'updater.id', '=', 'header.updated_by')
             ->leftJoin('users as eraser', 'eraser.id', '=', 'header.deleted_by')
-            ->select([
-               'header.*','customer.nama_rs as customer','creator.name as creator','updater.name as updater','eraser.name as eraser'       
-            ])->where(['header.delete_status' => 2])
-        ->get();
+        ->select([
+            'header.*','customer.nama_rs as customer','creator.name as creator','updater.name as updater','eraser.name as eraser'       
+        ])->where(['header.delete_status' => 2]);
 
         return DataTables::of($model)
             ->addIndexColumn()

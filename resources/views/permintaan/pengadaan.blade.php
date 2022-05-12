@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    SIMIT | Pengadaan
+    SIRUS | Pengadaan
 @endsection
     
 @section('content')
@@ -69,14 +69,14 @@
                 serverSide: true,
                 ajax: '{{ route('pengadaan.json') }}',
                 columns: [
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'pengadaan.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'created_at', name: 'created_at', className: "text-center" },
-                    { data: 'no_document', name: 'no_document'},
-                    { data: 'pemohon', name: 'pemohon'},
-                    { data: 'jenis', name: 'jenis'},
-                    { data: 'deskripsi', name: 'deskripsi'},
-                    { data: 'status', name: 'status'},
+                    { data: 'created_at', name: 'pengadaan.created_at', className: "text-center" },
+                    { data: 'no_document', name: 'pengadaan.no_document'},
+                    { data: 'pemohon', name: 'pemohon.name'},
+                    { data: 'jenis', name: 'jenis.kode'},
+                    { data: 'deskripsi', name: 'pengadaan.deskripsi'},
+                    { data: 'status', name: 'pengadaan.status'},
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

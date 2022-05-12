@@ -64,7 +64,7 @@
             }
         ?>
 
-        <center><img src="../public/assets/images/kop-surat.png"></center>
+        <center><img src="{{ asset('assets/images/kop-surat-iso.jpg') }}"></center>
         <hr>
         <p align="right">{{ $surattugas->nomor_polisi}}</p>
         <p align="center"><u><b>SURAT TUGAS</b></u>
@@ -184,7 +184,8 @@
                                 <td width="50%"><center><b>{{$datatujuan[1]}}</b></center></td>
                             </tr>
                             <tr>
-                                <td><center><b><u><br><br><br>Herman Harsono<br></u>Branch Office Manager</b></center></td>
+                                {{-- <td><center><b><u><br><br><br>Herman Harsono<br></u>Branch Office Manager</b></center></td> --}}
+                                <td><center><b><br><br><br>HRD Surabaya</b></center></td>
                                 <td><br><br><br><b><center>(.....................................)</center></b><br></td>
                             </tr>
                             <tr>

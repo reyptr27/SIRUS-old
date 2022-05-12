@@ -76,8 +76,8 @@
                     { data: 'DT_RowIndex', name: 'DT_RowIndex',  orderable: false,searchable: false, className: "text-center"},
                     { data: 'no_document', name: 'no_document'},
                     { data: 'created_at', name: 'created_at'},
-                    { data: 'nama_gudang', name: 'nama_gudang'},
-                    { data: 'nama_penerima', name: 'nama_penerima'},
+                    { data: 'nama_gudang', name: 'alamat_penerima.nama_gudang'},
+                    { data: 'nama_penerima', name: 'penerima.name'},
                     { data: 'nama_pengirim', name: 'nama_pengirim'},
                     { data: 'upload', name: 'upload', orderable: false, searchable: false, className: "text-center"},
                     

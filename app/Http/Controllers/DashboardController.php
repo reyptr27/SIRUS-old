@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Arsip\Arsip;
+use App\Models\CAPA\CAPA;
+use App\Models\Event\Event;
+use App\Models\Nomorsurat\Surat_eksternal;
 use Storage;
+
 class DashboardController extends Controller
 {
     public function __construct()
@@ -15,7 +19,11 @@ class DashboardController extends Controller
     public function index()
     {   
         $jumlah_arsip = count(Arsip::all());
-        return view('dashboard',compact('jumlah_arsip'));
+        $jumlah_capa  = count(CAPA::all());
+        $jumlah_surat_eksternal  = count(Surat_eksternal::all());
+        $jumlah_event  = count(Event::all());
+
+        return view('dashboard',compact('jumlah_arsip','jumlah_capa', 'jumlah_surat_eksternal','jumlah_event'));
     }
 
     public function downloadpanduanregister()   {

@@ -31,8 +31,7 @@ class CapaController extends Controller
                     'capa.*','kepada.nama_departemen as kepada','kepada.kode_departemen as kode_kepada','dari.nama_departemen as dari','dari.kode_departemen as kode_dari',
                     'lokasi.lokasi','pic.name as pic','verifikator.name as verifikator','creator.name as creator','updater.name as updater','capa_dept.dept_id'
                 ])
-                ->groupBy('capa.id')
-            ->get();
+            ->groupBy('capa.id');
         }else{
             $model = DB::table('capa')
                 ->leftJoin('m_departemen as kepada', 'kepada.id', '=', 'capa.kepada_id')
@@ -51,8 +50,8 @@ class CapaController extends Controller
                 ->orWhere('capa.all_dept', 1)
                 ->orWhere('capa.dari_id', $user->dept_id)
                 ->orWhere('capa.kepada_id', $user->dept_id)
-                ->groupBy('capa.id')
-            ->get();
+                ->orWhere('capa.created_by', $user->id)
+            ->groupBy('capa.id');
         }
 
         return DataTables::of($model)

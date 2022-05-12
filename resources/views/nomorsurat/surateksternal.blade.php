@@ -20,7 +20,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Nomor Surat</a></li>
+        <li><a href="#">Surat Keluar</a></li>
         <li><a href="#">Surat Eksternal</a></li>
         <li class="active"><a href="{{ route('surat.eksternal.index') }}">List Surat Eksternal</a></li>
     </ol>
@@ -76,10 +76,10 @@
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
                     { data: 'created_at', name: 'created_at', className: "text-center" },
                     { data: 'no_surat', name: 'no_surat'},
-                    { data: 'nama_tujuan', name: 'nama_tujuan' },
+                    { data: 'nama_tujuan', name: 'tujuan_eksternal.nama_tujuan' },
                     { data: 'keterangan', name: 'keterangan' },
-                    { data: 'kode_departemen', name: 'kode_departemen' },
-                    { data: 'name', name: 'name' },
+                    { data: 'kode_departemen', name: 'm_departemen.kode_departemen' },
+                    { data: 'name', name: 'users.name' },
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

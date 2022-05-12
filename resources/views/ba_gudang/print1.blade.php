@@ -3,6 +3,61 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>{{ $ba->no_document }}</title> 
+        <style type="text/css">
+            
+            body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: #FFFFFF;
+                /* font-size: 16pt; */
+                /* font-family: Tahoma, sans-serif; */
+            }
+            .tabel{
+                padding: 5px 5px 5px;
+            }
+            .tabel2{
+                border-collapse: collapse;
+                padding-left:15px;
+                padding-right:20px;
+            }
+            .judul{
+                font-size: 14pt;
+                font-weight: bold;
+                border: black 2px solid;
+                padding: 5px 5px 5px;
+                text-align: center;
+                font-family: Tahoma, sans-serif;
+            }
+            .top {
+                border-top: thin solid;
+                border-color: black;
+            }
+            .bottom {
+                border-bottom: thin solid;
+                border-color: black;
+            }
+            .top-strip {
+                border-top: thin dashed;
+                border-color: black;
+            }
+            .bottom-strip {
+                border-bottom: thin dashed;
+                border-color: black;
+            }
+            .left {
+                border-left: thin solid;
+                border-color: black;
+            }
+            .right {
+                border-right: thin solid;
+                border-color: black;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        </style>
     </head>
     <body>
         <?php          
@@ -95,24 +150,28 @@
              
             }
         ?>
-        <p align="right" style="margin-top:0px;padding-top:-30px"><b> F-SRU-C-SBY-09 </b></p>
-        <p align="center" style="font-size:14px;padding-top:-20px">
         
-        <u><b>BERITA ACARA SERAH TERIMA BARANG</b></u>
-        <br>
+        <p align="right" style="margin-top:0px;padding-top:-30px"><b> F-SRU-C-SBY-09 </b></p>
+
+        <p align="center" style="font-size:14px;padding-top:-20px">
+            <u><b>BERITA ACARA SERAH TERIMA BARANG</b></u>
+            <br>
             No: {{ $ba->no_document }}
         </p>
         
-        <p style="padding-left: 40px; padding-right: 40px;font-size:14px; margin-bottom:1px">
+        <p style="margin-top:0px; padding-left: 40px; padding-right: 40px;font-size:14px; margin-bottom:1px">
         
         &nbsp;&nbsp;&nbsp;&nbsp;Pada hari ini <u> &nbsp;&nbsp;&nbsp;&nbsp;{{ hari_ini(date('D', strtotime($ba->created_at) )) }} &nbsp;&nbsp;&nbsp;&nbsp; </u>
             Tanggal <u>&nbsp;&nbsp;&nbsp;&nbsp; {{ date('d', strtotime($ba->created_at) ) }} &nbsp;&nbsp;&nbsp;&nbsp;</u>
             Bulan <u>&nbsp;&nbsp;&nbsp;&nbsp;{{ getBulan(date('m', strtotime($ba->created_at) )) }} &nbsp;&nbsp;&nbsp;&nbsp; </u>
             Tahum <u>&nbsp;&nbsp;&nbsp;&nbsp; {{ date('Y', strtotime($ba->created_at) ) }} &nbsp;&nbsp;&nbsp;&nbsp; </u>
             yang bertanda tangan di bawah ini :
+             <br>
              
             <span style="margin-left: 40px;">
-                <table style="line-height: 15px; margin-left: 20px">                    
+            
+
+                <table style="line-height: 15px; margin-left: 20px; margin-top:-20px">                    
                     <tbody>
                         <tr>
                             <td valign=top>Nama</td>
@@ -155,7 +214,7 @@
                     </tbody>
                 </table>  
                        
-                <br>
+        
                 Dengan ini telah menerima barang yang diserahkan oleh :
                 
                 <table style="line-height: 15px; margin-left: 20px">                    
@@ -174,28 +233,41 @@
                             <td valign=top style="width: 300px;border-bottom:1px solid black">  
                                 {{$ba->perusahaan_pengirim}}
                             </td>
-                        </tr>
-
+                        </tr>                    
+                        
+                    </tbody>
+                </table>
+                <table style="margin-left: 20px;">                    
+                    <tbody>
+                        
                         <tr>
                            <td valign=top>Alamat</td>
-                            <td valign=top><span style="margin-left: 65px;">:</span></td>
+                            <td valign=top><span style="margin-left: 87px;">:</span></td>
+                        </tr>                           
+                        
+                    </tbody>
+                </table>
+                <table style="margin-left: 167px;margin-top:-40px;width:300px">                   
+                    <tbody>                        
+                        <tr>
                             <td valign=top style="width: 300px;border-bottom:1px solid black">  
-                               {{ $ba->alamat_pengirim}}
+                              {{ $ba->alamat_pengirim}}
                             </td>
                         </tr>                           
                         
                     </tbody>
                 </table>
-                <table style="line-height: 15px; margin-left: 20">                    
+                
+                <table style="line-height: 15px; margin-left: 20px; margin-bottom:-10px">                    
                     <tbody>
                         <tr>
                             <td valign=top>Document</td>
-                            <td valign=top><span style="margin-left: 65px;">: &nbsp;</span></td>
+                            <td valign=top><span style="margin-left: 70px;">: &nbsp;</span></td>
                             <td valign=top>
                                 - No. PL / Resi               
                             </td>
                             <td>:</td>
-                            <td style="width: 195px;border-bottom:1px solid black">{{$ba->no_resi}}</td>
+                            <td style="width: 190px;border-bottom:1px solid black">{{$ba->no_resi}}</td>
                         </tr>
                         <tr>
                            <td valign=top></td>
@@ -232,19 +304,18 @@
                 Dengan spesifikasi sebagai berikut :
                 
                 <table style="line-height: 15px" border="1" width="100%" cellspacing="0" cellpadding="2">                    
-                    <tbody>
-                        <tr align="center">
-                            <td width="5%">No.</td>
-                            <td width="30%" valign=top>Nama Barang</td>
-                            <td width="15%" valign=top>Kuantitas</td>
-                            <td width="15%" valign=top>Satuan</td>
-                            <td width="10%" valign=top>Kondisi</td>
-                            <td width="25%" valign=top>keterangan</td>
-                        </tr>
 
-                        
-                        @php $i=1; $total=0 @endphp
-                        @foreach($barang as $brg)
+                    <tr align="center">
+                        <td width="5%">No.</td>
+                        <td width="30%" valign=top>Nama Barang</td>
+                        <td width="15%" valign=top>Kuantitas</td>
+                        <td width="15%" valign=top>Satuan</td>
+                        <td width="10%" valign=top>Kondisi</td>
+                        <td width="25%" valign=top>keterangan</td>
+                    </tr>
+
+                    @php $i=1; $total=0 @endphp
+                    @foreach($barang as $brg)
                         <tr>
                             <td align="center">{{$i}}</td>
                             <td >{{$brg->nama_barang}}</td>
@@ -260,21 +331,20 @@
                             <td> {{$brg->keterangan}} </td>
                         </tr>
                         @php
-                        $i++;
-                        $total=$total+$brg->kuantitas;
+                            $i++;
+                            $total=$total+$brg->kuantitas;
                         @endphp
-                        @endforeach 
+                    @endforeach 
 
-                        
-                        <tr>
-                            <td colspan="2" align="center">Total</td>
-                            <td align="center"> {{$total}} </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>                                           
-                        
-                    </tbody>
+                    
+                    <tr>
+                        <td colspan="2" align="center">Total</td>
+                        <td align="center"> {{$total}} </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>                                           
+                          
                 </table>
                     <br>
                 Barang tersebut telah diterima *(
@@ -285,11 +355,11 @@
                     @endif
                     ) :
                 
-                <table style="line-height: 15px; margin-left: 20">                    
+                <table style="line-height: 15px; margin-left: 20px">                    
                     <tbody>
                         <tr>
                         <td valign=top>Selisih </td>
-                        <td valign=top><span style="margin-left: 30px;">: &nbsp;</span></td>
+                        <td valign=top><span style="margin-left: 30px;">:</span></td>
                         <td valign=top style="width: 330px;border-bottom:1px solid black">
                             {{ $ba->selisih}}              
                         </td>
@@ -299,21 +369,31 @@
                            <td valign=top>Cacat</td>
                             <td valign=top><span style="margin-left: 30px;">:</span></td>
                             <td valign=top style="width: 330px;border-bottom:1px solid black">
-                            {{ $ba->cacat}}              
-                        </td>
+                                {{ $ba->cacat}}              
+                            </td>
                         </tr>                                        
                         
+                        <tr>
+                            <td colspan="3">
+
+                                *coret yang tidak perlu
+                                <br><br>
+                                Demikian Berita Acara Serah Terima Barang ini kami buat untuk dipergunakan 
+                                sebagaimana mestinya
+
+                            </td>
+                        </tr>
+
+  
                     </tbody>
+
+                    
+
                 </table>            
-                
-                *coret yang tidak perlu
-                <br><br>
-                Demikian Berita Acara Serah Terima Barang ini kami buat untuk dipergunakan 
-                sebagaimana mestinya
                 
                 <span style="margin-left:40px">Diterima dan Diperiksa oleh : </span>
                 <span style="margin-left:245px">Diserahkan oleh :</span>
-                    <table cellpadding="10" width="100%">
+                    <table cellpadding="10" width="100%" style="margin-top:-10px">
                         <tbody>
                             
                             <tr>

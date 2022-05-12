@@ -136,7 +136,8 @@
                                                     selectpicker" required >
                                                         <option value="1" @if($barang->merk==1) selected @endif>SURDIAL</option>                                       
                                                         <option value="2" @if($barang->merk==2) selected @endif>SURDIAL 55</option>                                 
-                                                        <option value="3" @if($barang->merk==3) selected @endif>SURDIAL 55 Plus</option>                                              
+                                                        <option value="3" @if($barang->merk==3) selected @endif>SURDIAL 55 Plus</option>
+                                                        <option value="4" @if($barang->merk==4) selected @endif>NCU-18</option>                                                     
                                                     </select>      
                                         
                                             <p class="text-danger"></p>
@@ -222,6 +223,7 @@
                                         <option value="1" selected>SURDIAL</option>
                                         <option value="2">SURDIAL 55</option>
                                         <option value="3">SURDIAL 55 PLUS</option>
+                                        <option value="4">NCU-18</option>
                                     </select>      
                         
                             <p class="text-danger"></p>

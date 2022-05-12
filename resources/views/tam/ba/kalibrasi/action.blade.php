@@ -124,7 +124,8 @@
                         <td style="border:1px solid black" height="30px"> 
                             @if($b->merk==1) Surdial @endif 
                             @if($b->merk==2) Surdial 55 @endif    
-                            @if($b->merk==3) Surdial 55 Plus @endif 
+                            @if($b->merk==3) Surdial 55 Plus @endif
+                            @if($b->merk==4) NCU-18 @endif 
                         </td>
                         <td style="border:1px solid black" height="30px"> {{$b->no_seri}} </td>
                         

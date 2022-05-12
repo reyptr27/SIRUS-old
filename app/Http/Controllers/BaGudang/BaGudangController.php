@@ -118,12 +118,11 @@ class BaGudangController extends Controller
         // $login = Auth::user();
             ->leftJoin('users as penerima', 'ba_gudang.penerima_id', '=', 'penerima.id')
             ->leftJoin('ba_gudang_alamat as alamat_penerima', 'ba_gudang.alamat_id', '=', 'alamat_penerima.id')
-                    ->select([
-                        'ba_gudang.*','penerima.name as penerima','penerima.jabatan as jabatan', 
-                        'alamat_penerima.nama_gudang as nama_gudang' , 'alamat_penerima.alamat as alamat_penerima',
-                        'alamat_penerima.status as status_gudang'
-                    ])        
-            ->get();
+            ->select([
+                'ba_gudang.*','penerima.name as penerima','penerima.jabatan as jabatan', 
+                'alamat_penerima.nama_gudang as nama_gudang' , 'alamat_penerima.alamat as alamat_penerima',
+                'alamat_penerima.status as status_gudang'
+            ]);
                 
         return DataTables::of($bagudang)
             ->addIndexColumn()
@@ -363,8 +362,26 @@ class BaGudangController extends Controller
         $jmlbarang = count($barang);
        
         $pdf = PDF::loadView('ba_gudang.print', compact('ba', 'barang','jmlbarang'));
+        return $pdf->stream($ba->no_document.'.pdf');
+    }
+
+    public function print2($id)
+    {   
+        $ba = DB::table('ba_gudang')
+        ->leftJoin('users as penerima', 'ba_gudang.penerima_id', '=', 'penerima.id')
+        ->leftJoin('ba_gudang_alamat as alamat_penerima', 'ba_gudang.alamat_id', '=', 'alamat_penerima.id')
+        ->select([
+           'ba_gudang.*','penerima.name as penerima','penerima.jabatan as jabatan', 
+           'alamat_penerima.nama_gudang as nama_gudang' , 'alamat_penerima.alamat as alamat_penerima',
+            'alamat_penerima.status as status_gudang'
+        ])
+                ->where('ba_gudang.id',$id)
+                ->first();
+        // $ba = Ba_Gudang::findOrFail($id);
+        $barang = Ba_Gudang_Barang::where(['ba_gudang_id' => $ba->id])->get();
+        $jmlbarang = count($barang);
        
-        
+        $pdf = PDF::loadView('ba_gudang.print2', compact('ba', 'barang','jmlbarang'));
         return $pdf->stream($ba->no_document.'.pdf');
     }
 }

@@ -13,33 +13,31 @@
     <table>
         <thead>            
             <tr style="border:1px solid black" text-align="center">
-                <th style="width:5px; border:1px solid black" valign="center">
+                <th rowspan="2" style="width:5px; border:1px solid black" valign="center">
                     <strong>NO.</strong>
                 </th>
-                <th style="width:15px; border:1px solid black" valign="center" align="center"><strong>TANGGAL</strong></th>                
-                <th style="width:26px; border:1px solid black" valign="center" align="center"><strong>No. Form Perbaikan</strong></th>
-                <th style="width:50px; border:1px solid black" valign="center" align="center"><strong>Penanganan</strong></th>
-                <th style="border:1px solid black; border-right:1px solid black" align="center">
+                <th rowspan="2" style="width:13px; border:1px solid black" valign="center" align="center"><strong>Tgl Pengajuan</strong></th>                
+                <th rowspan="2" style="width:22px; border:1px solid black" valign="center" align="center"><strong>No. Form Perbaikan</strong></th>
+                <th rowspan="2" style="width:22px; border:1px solid black" valign="center" align="center"><strong>Pemohon</strong></th>
+                <th rowspan="2" style="width:45px; border:1px solid black" valign="center" align="center"><strong>Penanganan</strong></th>
+                <th colspan="2" style="border:1px solid black; border-right:1px solid black" align="center">
                 <strong>Status</strong></th>  
-                <th style="border:1px solid black"></th>            
+                          
             </tr>
             <tr>
-                <td style="border:1px solid black"></td>
-                <td style="border:1px solid black"></td>
-                <td style="border:1px solid black"></td>
-                <td style="border:1px solid black"></td>
-                <td style="border:1px solid black">OK</td>
-                <td style="border:1px solid black">N/OK</td>
+                <td style="width:7px; border:1px solid black">OK</td>
+                <td style="width:7px; border:1px solid black">N/OK</td>
             </tr>
         </thead>
         <tbody>
             @php $i=1 @endphp
             @foreach($perbaikan as $data)                
                 <tr>
-                    <td style="border:1px solid black">{{$i}}</td>
-                    <td style="border:1px solid black">{{ date('Y-m-d', strtotime($data->created_at)) }}</td>
-                    <td style="border:1px solid black">{{ $data->no_document }}</td>
-                    <td style="border:1px solid black">{{ $data->deskripsi }}</td>
+                    <td style="border:1px solid black" valign="top">{{$i}}</td>
+                    <td style="border:1px solid black" valign="top">{{ date('Y-m-d', strtotime($data->created_at)) }}</td>
+                    <td style="border:1px solid black" valign="top">{{ $data->no_document }}</td>
+                    <td style="border:1px solid black" valign="top">{{ $data->pemohon }}</td>
+                    <td style="border:1px solid black" valign="top">{{ $data->deskripsi }}</td>
                     <td style="border:1px solid black"></td>
                     <td style="border:1px solid black"></td>                    
                 </tr>

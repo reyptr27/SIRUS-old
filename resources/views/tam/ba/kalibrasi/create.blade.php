@@ -171,6 +171,7 @@
                                         <option value="1" selected>SURDIAL</option>
                                         <option value="2">SURDIAL 55</option>
                                         <option value="3">SURDIAL 55 PLUS</option>
+                                        <option value="4">NCU-18</option>
                                     </select>      
                         
                             <p class="text-danger"></p>

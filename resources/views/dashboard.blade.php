@@ -22,9 +22,9 @@
         <div class="row">     
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-aqua">
+                <div class="small-box bg-blue">
                 <div class="inner">
-                    <h3>4734</h3>
+                    <h3>{{ $jumlah_surat_eksternal }}</h3>
 
                     <p>Surat External</p>
                 </div>
@@ -40,14 +40,14 @@
                 <!-- small box -->
                 <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>160</h3>
+                    <h3>{{ $jumlah_capa }}</h3>
 
                     <p>CAPA</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-file-archive-o"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('capa.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -70,18 +70,45 @@
 
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-red">
+                <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>292</h3>
-                    <p>News</p>
+                    <h3>{{ $jumlah_event }}</h3>
+                    <p>Event</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-newspaper-o"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ route('event.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-body">
+                        <div class="post">
+                        <div class="user-block">
+                            <img class="img-circle img-bordered-sm" src="{{asset('images/sru-putih.png')}}" alt="user image">
+                            <span class="username">
+                                <a href="#">IT & MIS</a>
+                            </span>
+                            <span class="description">Sinar Roda Utama Surabaya</span>
+                        </div>
+                        <!-- /userblock -->
+                        <p align="justify">
+                           <strong>Informasi : </strong> Nama aplikasi <strong>Nomor Surat</strong> sekarang berganti menjadi <strong>Surat Keluar</strong>
+                        </p><br>
+                        
+                        <p>Best Regards</p>
+                        <p><b>IT & MIS SRU Surabaya</b></p>
+                        </div>
+                    </div>
+                    <!-- /boxbody -->
+                </div>
+                <!-- /box -->
+            </div>
         </div>
 
         <!-- row -->
@@ -93,7 +120,7 @@
                 <div class="user-block">
                     <img class="img-circle img-bordered-sm" src="{{asset('images/sru-putih.png')}}" alt="user image">
                     <span class="username">
-                        <a href="#">IT Support</a>
+                        <a href="#">IT & MIS</a>
                     </span>
                     <span class="description">Sinar Roda Utama Surabaya</span>
                 </div>
@@ -107,7 +134,7 @@
                 </p><br>
                 
                 <p>Best Regards</p>
-                <p><b>ITS SRU Surabaya</b></p>
+                <p><b>IT & MIS SRU Surabaya</b></p>
                 </div>
             </div>
             <!-- /boxbody -->
@@ -116,9 +143,9 @@
         </div>
         <!-- col -->
         <div class="col-md-3">
-            <div class="box box-info">
+            <div class="box box-primary">
             <div class="box-header">
-                <h3 class="box-title">Contact IT Support</h3>
+                <h3 class="box-title">Support Contact</h3>
             </div>
             <div class="box-body">
                 <div class="user-block">
@@ -132,17 +159,17 @@
                 <div class="user-block">
                 <img class="img-circle img-bordered-sm" src="{{asset('images/profile/default-profile.jpg')}}" alt="user image">
                 <span class="username">
-                    <a href="#">Liztrianto Pujo Hardhiko</a>
+                    <a href="#">Nuzulul Mas'ud</a>
                 </span>
-                <span class="description"><h4>+62 822-3553-3312</h4></span>
+                <span class="description"><h4>+62 857-8440-6018</h4></span>
                 </div>
                 <!-- /userblock -->
                 <div class="user-block">
                 <img class="img-circle img-bordered-sm" src="{{asset('images/profile/default-profile.jpg')}}" alt="user image">
                 <span class="username">
-                    <a href="#">Nuzulul Mas'ud</a>
+                    <a href="#">Reynaldo Putra Koesmita</a>
                 </span>
-                <span class="description"><h4>+62 857-8440-6018</h4></span>
+                <span class="description"><h4>+62 878-5540-0002</h4></span>
                 </div>
                 <!-- /userblock -->
             </div>
@@ -150,7 +177,7 @@
         </div>
 
         <div class="col-md-9">
-            <div class="box box-info">
+            <div class="box box-success">
             <div class="box-body">
                 <div class="post">
                 <div class="user-block">
@@ -178,7 +205,7 @@
                 </span>
                 <hr>
                 <p>Best Regards</p>
-                <p><b>ITS SRU Surabaya</b></p>
+                <p><b>IT & MIS SRU Surabaya</b></p>
                 </div>
             </div>
             <!-- /boxbody -->

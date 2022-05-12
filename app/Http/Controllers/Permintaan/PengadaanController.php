@@ -37,7 +37,7 @@ class PengadaanController extends Controller
                          'dept.nama_departemen as dept','cabang.nama_cabang as cabang',
                          'officer.name as officer',
                          'pembuat.name as pembuat','updater.name as updater'
-                    ])->get();
+                    ]);
         }
         else
         {
@@ -61,7 +61,7 @@ class PengadaanController extends Controller
                          'officer.name as officer',
                          'pembuat.name as pembuat','updater.name as updater'
             ])->where('pengadaan.pemohon_id','=',$login->id)
-            ->orwhere('pengadaan.created_by','=',$login->id)->get();
+            ->orwhere('pengadaan.created_by','=',$login->id);
         
         }
         return DataTables::of($pengadaan)

@@ -1,0 +1,73 @@
+@if( $upload_file != null )
+<?php
+    $namafile = $upload_file;
+    $pisah = explode('.', $namafile);
+    $leght = count($pisah)-1;
+    $ekstensi = $pisah[$leght];
+?>
+<center>
+    <a class="btn btn-warning btn-xs" href="{{ route('confirmation.show', $id) }}" target="_blank">
+        <i class="fa fa-eye"></i>
+    </a>
+    
+    <button type="button" title="Upload" class="btn btn-success btn-xs" data-toggle="modal"
+        data-target="#upload{{$id}}">
+        <i class="fa fa-upload"></i>
+    </button>
+    
+    <a class="btn btn-danger btn-xs" href="{{ route('confirmation.download', $id) }}">
+        <i class="fa fa-download"></i>
+    </a>
+</center>
+@else
+<center>
+    <button type="button" title="Upload" class="btn btn-success btn-xs" data-toggle="modal"
+        data-target="#upload{{$id}}">
+        <i class="fa fa-upload"></i>
+    </button>
+</center>
+@endif
+
+<div class="modal fade" id="upload{{$id}}" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Pilih file / Dokumen <strong></strong></h4>
+            </div>
+        <form action="{{ route('confirmation.upload', $id) }}" method="post" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            {{ method_field('PATCH') }}
+            <div class="modal-body">
+                <center>
+                <div class="form-group">
+                    <label for="">Upload Dokumen / File (pdf, jpg, jpeg, png)</label><br>
+                    @if($upload_file != null)
+                        <br>
+                        @if($ekstensi == "pdf")
+                            <img src="{{ asset('assets/images/pdf.png')}}" style="width:30%; height:30%"><br>
+                            <label for=""><strong>Nama File :</strong> {{ $upload_file}}</label><br>
+                        @else                            
+                            <img src="{{ asset('storage/SuratMasuk/'.$upload_file)}}" style="width:45%; height:45%"><br>
+                            <label for=""><strong>Nama File :</strong> {{ $upload_file}}</label><br>
+                        @endif                    
+                    @endif
+                    <label for="">Pilih File</label>
+                    <input type="file" name="upload_file" class="form-control 
+                    {{ $errors->has('upload_file') ? 'is-invalid':'' }}"
+                     value="{{ old('upload_file') }}" 
+                    accept="image/png, image/jpeg, application/pdf" required>
+                    <p class="text-danger">{{ $errors->first('upload_file') }}</p>
+                </div>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-upload"></i> UPLOAD</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i>BATAL</button>
+                </center>
+            </div>
+        </form>     
+        </div>                                         
+    </div>
+</div>

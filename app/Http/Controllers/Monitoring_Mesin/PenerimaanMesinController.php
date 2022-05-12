@@ -21,14 +21,13 @@ class PenerimaanMesinController extends Controller
     public function json()
     {
         $model = DB::table('hd_penerimaan_header as header')
-            ->leftJoin('ba_gudang_alamat as gudang', 'gudang.id', '=', 'header.gudang_id')
-            ->leftJoin('tam_ba_rs as customer', 'customer.id', '=', 'header.customer_id')
-            ->leftJoin('users as creator', 'creator.id', '=', 'header.created_by')
-            ->leftJoin('users as updater', 'updater.id', '=', 'header.updated_by')
-            ->select([
-               'header.*','gudang.nama_gudang as gudang','customer.nama_rs as customer','creator.name as creator','updater.name as updater'        
-            ])
-        ->get();
+        ->leftJoin('ba_gudang_alamat as gudang', 'gudang.id', '=', 'header.gudang_id')
+        ->leftJoin('tam_ba_rs as customer', 'customer.id', '=', 'header.customer_id')
+        ->leftJoin('users as creator', 'creator.id', '=', 'header.created_by')
+        ->leftJoin('users as updater', 'updater.id', '=', 'header.updated_by')
+        ->select([
+            'header.*','gudang.nama_gudang as gudang','customer.nama_rs as customer','creator.name as creator','updater.name as updater'        
+        ]);
 
         return DataTables::of($model)
             ->addIndexColumn()

@@ -37,7 +37,7 @@ class PerbaikanController extends Controller
                          'dept.nama_departemen as dept','cabang.nama_cabang as cabang',
                          'officer.name as officer',
                          'pembuat.name as pembuat' ,'updater.name as updater'
-                    ])->get();
+                    ]);
         }
         else
         {
@@ -61,7 +61,7 @@ class PerbaikanController extends Controller
                          'officer.name as officer',
                          'pembuat.name as pembuat','updater.name as updater'
             ])->where('perbaikan.pemohon_id','=',$login->id)
-            ->orwhere('perbaikan.created_by','=',$login->id)->get();
+            ->orwhere('perbaikan.created_by','=',$login->id);
         
         }
                 
@@ -101,18 +101,9 @@ class PerbaikanController extends Controller
 
                 }
                 else{
-                    if($perbaikan->status == 1) 
-                        {return '<label for="" class="label label-warning">Approval user & atasan</label>';}
-                    elseif($perbaikan->status == 2) 
-                        {return '<label for="" class="label label-primary">Analisa IT</label>';}
-                    elseif($perbaikan->status == 3) 
-                        {return '<label for="" class="label label-warning">Approval Kepala Divisi / BOM</label>';}
-                    elseif($perbaikan->status == 4) 
-                        {return '<label for="" class="label label-primary">Analisa ITS Pusat</label>';}
-                    elseif($perbaikan->status == 5) 
-                        {return '<label for="" class="label label-warning">Approval Pimpinan</label>';}
-                    else
-                        {return '<label for="" class="label label-success">Disetujui</label>';}
+                    return '<a data-target="#lihatstatus'.$perbaikan->id.
+                        '" data-toggle="modal" href=#lihatstatus'.$perbaikan->id.
+                        '" class="label label-default">Lihat Status</a>';
                 }
             })
             ->addColumn('action', 'permintaan.actionperbaikan') //mengambil dari blade view

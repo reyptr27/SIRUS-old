@@ -22,8 +22,7 @@ class ManualBookController extends Controller
                 ->select([
                    'mb.*' ,'u.name as updater','c.name as creator'  
                 ])
-            ->groupBy('mb.id')
-            ->get();
+            ->groupBy('mb.id');
         }else{
             $model = DB::table('manual_book as mb')
                 ->leftJoin('users as c', 'c.id', '=', 'mb.created_by')
@@ -33,8 +32,7 @@ class ManualBookController extends Controller
                    'mb.*' ,'u.name as updater','c.name as creator'  
                 ])
             ->groupBy('mb.id')
-            ->where('dept.dept_id',$user->dept_id)->orWhere('mb.all_dept', 1)
-            ->get();
+            ->where('dept.dept_id',$user->dept_id)->orWhere('mb.all_dept', 1);
         }
 
         return DataTables::of($model)

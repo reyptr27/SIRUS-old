@@ -15,51 +15,48 @@ class FormUnpaidController extends Controller
 
         if($user->hasPermissionTo('hrd-formulir-all')){
             $form = DB::table('hrd_unpaid')
-                ->leftJoin('users', 'users.id', '=', 'hrd_unpaid.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_unpaid.created_by')
-                ->leftJoin('users as atasan', 'atasan.id', '=', 'hrd_unpaid.atasan_id')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_unpaid.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_unpaid.tanggal_awal','hrd_unpaid.tanggal_akhir','hrd_unpaid.tanggal_masuk',
-                   'creator.name as pembuat','hrd_unpaid.created_at','hrd_unpaid.divisi','hrd_unpaid.alasan','atasan.name as nama_atasan','hrd_unpaid.upload_file'
-                ])
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_unpaid.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_unpaid.created_by')
+            ->leftJoin('users as atasan', 'atasan.id', '=', 'hrd_unpaid.atasan_id')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_unpaid.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_unpaid.tanggal_awal','hrd_unpaid.tanggal_akhir','hrd_unpaid.tanggal_masuk',
+                'creator.name as pembuat','hrd_unpaid.created_at','hrd_unpaid.divisi','hrd_unpaid.alasan','atasan.name as nama_atasan','hrd_unpaid.upload_file'
+            ]);
         }elseif($user->hasPermissionTo('hrd-formulir-pic'))
         {
             $form = DB::table('hrd_unpaid')
-                ->leftJoin('users', 'users.id', '=', 'hrd_unpaid.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_unpaid.created_by')
-                ->leftJoin('users as atasan', 'atasan.id', '=', 'hrd_unpaid.atasan_id')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_unpaid.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_unpaid.tanggal_awal','hrd_unpaid.tanggal_akhir','hrd_unpaid.tanggal_masuk',
-                   'creator.name as pembuat','hrd_unpaid.created_at','hrd_unpaid.divisi','hrd_unpaid.alasan','atasan.name as nama_atasan','hrd_unpaid.upload_file'
-                ])->where(['hrd_unpaid.created_by' => $user->id])
-                ->orwhere(['hrd_unpaid.karyawan_id' => $user->id])
-                ->orwhere('users.atasan_id', '=', $user->id)
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_unpaid.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_unpaid.created_by')
+            ->leftJoin('users as atasan', 'atasan.id', '=', 'hrd_unpaid.atasan_id')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_unpaid.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_unpaid.tanggal_awal','hrd_unpaid.tanggal_akhir','hrd_unpaid.tanggal_masuk',
+                'creator.name as pembuat','hrd_unpaid.created_at','hrd_unpaid.divisi','hrd_unpaid.alasan','atasan.name as nama_atasan','hrd_unpaid.upload_file'
+            ])->where(['hrd_unpaid.created_by' => $user->id])
+            ->orwhere(['hrd_unpaid.karyawan_id' => $user->id])
+            ->orwhere('users.atasan_id', '=', $user->id);
         }
         else{
             $form = DB::table('hrd_unpaid')
-                ->leftJoin('users', 'users.id', '=', 'hrd_unpaid.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_unpaid.created_by')
-                ->leftJoin('users as atasan', 'atasan.id', '=', 'hrd_unpaid.atasan_id')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_unpaid.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_unpaid.tanggal_awal','hrd_unpaid.tanggal_akhir','hrd_unpaid.tanggal_masuk',
-                   'creator.name as pembuat','hrd_unpaid.created_at','hrd_unpaid.divisi','hrd_unpaid.alasan','atasan.name as nama_atasan','hrd_unpaid.upload_file'
-                ])->where(['hrd_unpaid.created_by' => $user->id])
-                ->orwhere(['hrd_unpaid.karyawan_id' => $user->id])
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_unpaid.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_unpaid.created_by')
+            ->leftJoin('users as atasan', 'atasan.id', '=', 'hrd_unpaid.atasan_id')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_unpaid.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_unpaid.tanggal_awal','hrd_unpaid.tanggal_akhir','hrd_unpaid.tanggal_masuk',
+                'creator.name as pembuat','hrd_unpaid.created_at','hrd_unpaid.divisi','hrd_unpaid.alasan','atasan.name as nama_atasan','hrd_unpaid.upload_file'
+            ])->where(['hrd_unpaid.created_by' => $user->id])
+            ->orwhere(['hrd_unpaid.karyawan_id' => $user->id]);
         }
         
         return DataTables::of($form)

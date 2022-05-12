@@ -2,6 +2,7 @@
             'surat.eksternal.index','surat.eksternal.create','surat.eksternal.edit','tujuan.eksternal.index',
             'surat.hd.index','surat.hd.create','surat.hd.edit','tujuan.hd.index','kategori.hd.index',
             'surat.nhd.index','surat.nhd.create','surat.nhd.edit','tujuan.nhd.index','kategori.nhd.index',
+            'surat.masuk.index','surat.masuk.create','surat.masuk.edit',
         ]) }}">
             <!-- treeview header  -->
             <a href="#">
@@ -60,6 +61,12 @@
                     </ul>
                 </li>
                 @endcan
+
+
+                <li class="treeview {{ set_active(['surat.masuk.index','surat.masuk.create','surat.masuk.edit']) }}">
+                    <!-- treeview header  -->
+                    <li class="{{ set_active(['surat.masuk.index','surat.masuk.create','surat.masuk.edit']) }}"><a href="{{ route('surat.masuk.index') }}"><i class="fa fa-level-down"></i> Surat Masuk</a></li>
+                </li>
             </ul>
             <!-- end treeview menu  -->
         </li>

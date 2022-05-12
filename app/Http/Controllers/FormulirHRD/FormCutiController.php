@@ -27,11 +27,10 @@ class FormCutiController extends Controller
                    'm_cabang.nama_cabang', 'hrd_cuti_header.tanggal_awal','hrd_cuti_header.tanggal_akhir',
                    'creator.name as pembuat','hrd_cuti_header.created_at','hrd_cuti_header.alasan','hrd_cuti_header.alamat',
                    'pengganti.name as nama_pengganti','controller.name as nama_controller', 'hrd_cuti_header.tanggal_bergabung','hrd_cuti_header.status_inventaris',
-                   'hrd_cuti_header.alasan','hrd_cuti_header.no_telp','hrd_cuti_header.alasan','hrd_cuti_header.jenis_cuti','hrd_cuti_header.upload_file',
+                    'hrd_cuti_header.no_telp','hrd_cuti_header.jenis_cuti','hrd_cuti_header.upload_file',
                 ])
-                ->get();
-        }elseif($user->hasPermissionTo('hrd-formulir-pic'))
-        {
+            ->orderBy('created_at', 'DESC');
+        }elseif($user->hasPermissionTo('hrd-formulir-pic')){
             $form = DB::table('hrd_cuti_header')
                 ->leftJoin('users', 'users.id', '=', 'hrd_cuti_header.karyawan_id')
                 ->leftJoin('users as creator', 'creator.id', '=', 'hrd_cuti_header.created_by')
@@ -45,12 +44,12 @@ class FormCutiController extends Controller
                    'm_cabang.nama_cabang', 'hrd_cuti_header.tanggal_awal','hrd_cuti_header.tanggal_akhir',
                    'creator.name as pembuat','hrd_cuti_header.created_at','hrd_cuti_header.alasan','hrd_cuti_header.alamat',
                    'pengganti.name as nama_pengganti','controller.name as nama_controller', 'hrd_cuti_header.tanggal_bergabung','hrd_cuti_header.status_inventaris',
-                   'hrd_cuti_header.alasan','hrd_cuti_header.no_telp','hrd_cuti_header.alasan','hrd_cuti_header.jenis_cuti','hrd_cuti_header.upload_file',
+                   'hrd_cuti_header.no_telp','hrd_cuti_header.jenis_cuti','hrd_cuti_header.upload_file',
                 ])
                 ->where(['hrd_cuti_header.created_by' => $user->id])
                 ->orwhere(['hrd_cuti_header.karyawan_id' => $user->id])
                 ->orwhere('users.atasan_id', '=', $user->id)
-                ->get();
+            ->orderBy('created_at', 'DESC');
         }
         else{
             $form = DB::table('hrd_cuti_header')
@@ -66,11 +65,11 @@ class FormCutiController extends Controller
                    'm_cabang.nama_cabang', 'hrd_cuti_header.tanggal_awal','hrd_cuti_header.tanggal_akhir',
                    'creator.name as pembuat','hrd_cuti_header.created_at','hrd_cuti_header.alasan','hrd_cuti_header.alamat',
                    'pengganti.name as nama_pengganti','controller.name as nama_controller', 'hrd_cuti_header.tanggal_bergabung', 'hrd_cuti_header.status_inventaris',
-                   'hrd_cuti_header.alasan','hrd_cuti_header.no_telp','hrd_cuti_header.alasan','hrd_cuti_header.jenis_cuti','hrd_cuti_header.upload_file',
+                   'hrd_cuti_header.no_telp','hrd_cuti_header.jenis_cuti','hrd_cuti_header.upload_file',
                 ])
                 ->where(['hrd_cuti_header.created_by' => $user->id])
                 ->orwhere(['hrd_cuti_header.karyawan_id' => $user->id])
-                ->get();
+            ->orderBy('created_at', 'DESC');
         }
 
         return DataTables::of($form)

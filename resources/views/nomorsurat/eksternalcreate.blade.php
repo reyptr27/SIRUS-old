@@ -13,7 +13,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Nomor Surat</a></li>
+        <li><a href="#">Surat Keluar</a></li>
         <li><a href="#">Surat Eksternal</a></li>
         <li class="active"><a href="{{ route('surat.eksternal.create') }}">Tambah Surat Eksternal</a></li>
     </ol>

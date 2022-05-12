@@ -30,8 +30,7 @@ class ChemicalController extends Controller
                             'tam_ba_chemical.*','teknisi.name as teknisi','teknisi.jabatan as jabatan', 
                             'rumah_sakit.nama_rs as nama_rs', 'katek.name as katek','katam.name as katam',
                             'pembuat.name as pembuat','updater.name as updater'
-                        ])    
-                        ->get();
+                        ]);
         }
         else{
             $bachemical = DB::table('tam_ba_chemical')
@@ -46,8 +45,7 @@ class ChemicalController extends Controller
                             'rumah_sakit.nama_rs as nama_rs', 'katek.name as katek','katam.name as katam',
                             'pembuat.name as pembuat','updater.name as updater'
                         ])    
-                        ->where('tam_ba_chemical.cabang_id','=',$login->cabang_id)
-                        ->get();
+                        ->where('tam_ba_chemical.cabang_id','=',$login->cabang_id);
         }
                 
         return DataTables::of($bachemical)
@@ -76,8 +74,8 @@ class ChemicalController extends Controller
                 ->select([
                     'teknisi.*','tam_teknisi.status','tam_teknisi.id as teknisi'
                 ])        
-                ->where(['teknisi.active' => 4,'teknisi.cabang_id' => $login->cabang_id])->orderBy('teknisi.name', 'ASC')->get();
-
+                // ->where(['teknisi.active' => 4,'teknisi.cabang_id' => $login->cabang_id])->orderBy('teknisi.name', 'ASC')->get();
+                ->where(['teknisi.active' => 4])->orderBy('teknisi.name', 'ASC')->get();
 
         $kateks     = User::whereHas('permissions', function($q){ 
             $q->where('name', 'tam-katek'); 
@@ -137,7 +135,8 @@ class ChemicalController extends Controller
                     ->select([
                         'teknisi.*','tam_teknisi.status','tam_teknisi.id as teknisi'
                     ])        
-                    ->where(['teknisi.active' => 4, 'teknisi.cabang_id' => $login->cabang_id])->orderBy('teknisi.name', 'ASC')->get();
+                    // ->where(['teknisi.active' => 4, 'teknisi.cabang_id' => $login->cabang_id])->orderBy('teknisi.name', 'ASC')->get();
+                    ->where(['teknisi.active' => 4])->orderBy('teknisi.name', 'ASC')->get();
 
         $kateks     = User::whereHas('permissions', function($q){ 
             $q->where('name', 'tam-katek'); 

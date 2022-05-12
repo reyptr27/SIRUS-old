@@ -15,48 +15,45 @@ class FormSakitController extends Controller
 
         if($user->hasPermissionTo('hrd-formulir-all')){
             $form = DB::table('hrd_sakit')
-                ->leftJoin('users', 'users.id', '=', 'hrd_sakit.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_sakit.created_by')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_sakit.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_sakit.tanggal_awal','hrd_sakit.tanggal_akhir','hrd_sakit.tanggal_masuk',
-                   'creator.name as pembuat','hrd_sakit.created_at','hrd_sakit.upload_file'
-                ])
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_sakit.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_sakit.created_by')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_sakit.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_sakit.tanggal_awal','hrd_sakit.tanggal_akhir','hrd_sakit.tanggal_masuk',
+                'creator.name as pembuat','hrd_sakit.created_at','hrd_sakit.upload_file'
+            ]);
         }elseif($user->hasPermissionTo('hrd-formulir-pic'))
         {
             $form = DB::table('hrd_sakit')
-                ->leftJoin('users', 'users.id', '=', 'hrd_sakit.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_sakit.created_by')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_sakit.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_sakit.tanggal_awal','hrd_sakit.tanggal_akhir','hrd_sakit.tanggal_masuk',
-                   'creator.name as pembuat','hrd_sakit.created_at','hrd_sakit.upload_file'
-                ])->where(['hrd_sakit.created_by' => $user->id])
-                ->orwhere(['hrd_sakit.karyawan_id' => $user->id])
-                ->orwhere('users.atasan_id', '=', $user->id)
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_sakit.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_sakit.created_by')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_sakit.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_sakit.tanggal_awal','hrd_sakit.tanggal_akhir','hrd_sakit.tanggal_masuk',
+                'creator.name as pembuat','hrd_sakit.created_at','hrd_sakit.upload_file'
+            ])->where(['hrd_sakit.created_by' => $user->id])
+            ->orwhere(['hrd_sakit.karyawan_id' => $user->id])
+            ->orwhere('users.atasan_id', '=', $user->id);
         }
         else{
             $form = DB::table('hrd_sakit')
-                ->leftJoin('users', 'users.id', '=', 'hrd_sakit.karyawan_id')
-                ->leftJoin('users as creator', 'creator.id', '=', 'hrd_sakit.created_by')
-                ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
-                ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
-                ->select([
-                    'hrd_sakit.id',
-                   'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
-                   'm_cabang.nama_cabang', 'hrd_sakit.tanggal_awal','hrd_sakit.tanggal_akhir','hrd_sakit.tanggal_masuk',
-                   'creator.name as pembuat','hrd_sakit.created_at','hrd_sakit.upload_file'
-                ])->where(['hrd_sakit.created_by' => $user->id])
-                ->orwhere(['hrd_sakit.karyawan_id' => $user->id])
-                ->get();
+            ->leftJoin('users', 'users.id', '=', 'hrd_sakit.karyawan_id')
+            ->leftJoin('users as creator', 'creator.id', '=', 'hrd_sakit.created_by')
+            ->leftJoin('m_departemen', 'm_departemen.id','=','users.dept_id')
+            ->leftJoin('m_cabang', 'm_cabang.id','=','users.cabang_id')
+            ->select([
+                'hrd_sakit.id',
+                'users.name', 'users.nik','m_departemen.nama_departemen', 'users.jabatan',
+                'm_cabang.nama_cabang', 'hrd_sakit.tanggal_awal','hrd_sakit.tanggal_akhir','hrd_sakit.tanggal_masuk',
+                'creator.name as pembuat','hrd_sakit.created_at','hrd_sakit.upload_file'
+            ])->where(['hrd_sakit.created_by' => $user->id])
+            ->orwhere(['hrd_sakit.karyawan_id' => $user->id]);
         }
         
         return DataTables::of($form)

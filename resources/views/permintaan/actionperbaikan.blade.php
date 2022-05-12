@@ -41,6 +41,40 @@
     </div>
 </div> 
 
+<div class="modal fade" id="lihatstatus{{ $id }}" role="dialog" aria-labelledby="myModalLabel">                               
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Status Pengajuan Perbaikan <strong>{{ $no_document }}</strong> ?</h4>
+            </div>
+            
+            <div class="modal-body">
+                <table width="100%">
+                    
+                    <tr>
+                        <td valign="top" class="text-left" height="30px"><b>Status Pengajuan</b></td>
+                        <td valign="top"><b>:</b></td>
+                        <td valign="top" class="text-left"></td>
+                    </tr>
+                    
+                    
+                    
+                    
+                   
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> CLOSE</button>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="detailperbaikan{{ $id }}" role="dialog" aria-labelledby="myModalLabel">                               
     <div class="modal-dialog">
         <div class="modal-content">

@@ -183,8 +183,9 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 
                     </td>
 
-                    <td colspan="2" valign="top" > Kepala Divisi / BOM : <br><br><br><br><br><br> 
-                        ( Herman Harsono )
+                    <td colspan="2" valign="top" > Kepala Divisi : <br><br><br><br><br><br> 
+                        {{-- ( Herman Harsono ) --}}
+                        (  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 
                     </td>                   
                     
@@ -448,8 +449,8 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 
                     </td>
 
-                    <td colspan="2" valign="top" > Kepala Divisi / BOM : <br><br><br><br><br><br> 
-                        ( Herman Harsono )
+                    <td colspan="2" valign="top" > Kepala Divisi : <br><br><br><br><br><br> 
+                        (  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 
                     </td>                   
                     

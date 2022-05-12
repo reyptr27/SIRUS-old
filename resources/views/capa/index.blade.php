@@ -68,9 +68,9 @@
                                 <label for="">Status</label>
                                 <select name="filter_status" id="filter_status" class="form-control select2">
                                     <option value="">All</option>
-                                    <option value="Process">Process</option>
-                                    <option value="Rejected">Rejected</option>
-                                    <option value="Done">Done</option>
+                                    <option value="1">Process</option>
+                                    <option value="3">Rejected</option>
+                                    <option value="2">Done</option>
                                 </select>
                             </div>
                         </div>
@@ -117,10 +117,10 @@
                     { data: 'id', name: 'id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
                     { data: 'nomor', name: 'nomor'},
-                    { data: 'kode_dari', name: 'kode_dari'},
-                    { data: 'kode_kepada', name: 'kode_kepada'},
+                    { data: 'kode_dari', name: 'dari.kode_departemen'},
+                    { data: 'kode_kepada', name: 'kepada.kode_departemen'},
                     { data: 'inti_masalah', name: 'inti_masalah'},
-                    { data: 'lokasi', name: 'lokasi'},
+                    { data: 'lokasi', name: 'lokasi.lokasi'},
                     { data: 'tgl_terjadi', name: 'tgl_terjadi'},
                     { data: 'upload', name: 'upload'},
                     { data: 'kol-status', name: 'kol-status', className: "text-center"},

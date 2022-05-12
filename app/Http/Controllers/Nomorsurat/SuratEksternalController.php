@@ -58,9 +58,7 @@ class SuratEksternalController extends Controller
                 'surat_eksternal.id','surat_eksternal.no_surat','surat_eksternal.created_at',
                 'surat_eksternal.dept_id','surat_eksternal.keterangan','tujuan_eksternal.nama_tujuan',
                 'users.name','m_departemen.nama_departemen','m_departemen.kode_departemen'
-            ])
-            ->get();
-    
+            ]);
         }else{
             $surat = DB::table('surat_eksternal')
             ->leftJoin('m_cabang', 'surat_eksternal.cabang_id', '=', 'm_cabang.id')
@@ -72,9 +70,7 @@ class SuratEksternalController extends Controller
                 'surat_eksternal.dept_id','surat_eksternal.keterangan','tujuan_eksternal.nama_tujuan',
                 'users.name','m_departemen.nama_departemen','m_departemen.kode_departemen'
             ])
-            ->where([ 'surat_eksternal.dept_id' => $user->dept_id ])
-            ->get();
-    
+            ->where([ 'surat_eksternal.dept_id' => $user->dept_id ]);
         }
 
         return DataTables::of($surat)

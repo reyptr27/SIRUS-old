@@ -156,7 +156,7 @@
             }
 
         </style>
-        <table align="right" style="margin-top:-30px; padding-right:-50px">
+        <table align="right" style="margin-top:-30px; padding-right:50px">
             <tr>
                 <td>F-SRU-C-SBY-30</td>
             </tr>

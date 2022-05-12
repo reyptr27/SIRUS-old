@@ -220,6 +220,43 @@ Route::group(['middleware' => ['auth']], function () {
         //delete -> permission:nomorsurat-hapus
         Route::delete('/nomorsurat/nhd/{id}', 'Nomorsurat\SuratNHDController@destroy')
         ->name('surat.nhd.destroy')->middleware('permission:nomorsurat-hapus');
+
+        //Surat Masuk
+            //Konfirmasi Up
+            Route::get('/nomorsurat/confirmation/json', 'Nomorsurat\ConfirmationController@json')
+            ->name('confirmation.json');
+            Route::get('/nomorsurat/confirmation', 'Nomorsurat\ConfirmationController@index')
+            ->name('confirmation.index');
+            Route::patch('/nomorsurat/confirmation/{id}/update', 'Nomorsurat\ConfirmationController@statusUpdate')->name('confirmation.statusUpdate');
+
+            //Upload & Download
+            Route::patch('/nomorsurat/confirmation/{id}/upload', 'Nomorsurat\ConfirmationController@upload')->name('confirmation.upload');        
+            Route::get('/nomorsurat/confirmation/{id}/download', 'Nomorsurat\ConfirmationController@download')->name('confirmation.download');        
+            Route::get('/nomorsurat/confirmation/{id}/show', 'Nomorsurat\ConfirmationController@show')->name('confirmation.show'); 
+
+            //Surat Masuk
+            Route::get('/nomorsurat/masuk/json', 'Nomorsurat\SuratMasukController@json')
+            ->name('surat.masuk.json');
+            Route::get('/nomorsurat/masuk', 'Nomorsurat\SuratMasukController@index')
+            ->name('surat.masuk.index');
+            Route::get('/nomorsurat/masuk/create', 'Nomorsurat\SuratMasukController@create')
+            ->name('surat.masuk.create');
+            Route::post('/nomorsurat/masuk', 'Nomorsurat\SuratMasukController@store')
+            ->name('surat.masuk.store');
+            Route::get('/nomorsurat/masuk/{id}', 'Nomorsurat\SuratMasukController@edit')
+            ->name('surat.masuk.edit');
+            Route::patch('/nomorsurat/masuk/{id}', 'Nomorsurat\SuratMasukController@update')
+            ->name('surat.masuk.update');
+            //delete -> permission:nomorsurat-hapus
+            Route::delete('/nomorsurat/masuk/{id}', 'Nomorsurat\SuratMasukController@destroy')
+            ->name('surat.masuk.destroy')->middleware('permission:nomorsurat-hapus');
+
+            //Upload & Download
+            Route::patch('/nomorsurat/masuk/{id}/upload', 'Nomorsurat\SuratMasukController@upload')->name('surat.masuk.upload');        
+            Route::get('/nomorsurat/masuk/{id}/download', 'Nomorsurat\SuratMasukController@download')->name('surat.masuk.download');        
+            Route::get('/nomorsurat/masuk/{id}/show', 'Nomorsurat\SuratMasukController@show')->name('surat.masuk.show'); 
+        //END Surat Masuk
+
     //END Nomor Surat
 
     // MAINTENANCE CCTV
@@ -424,6 +461,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/beritaacara/gudang/{id}/show', 'BaGudang\BaGudangController@show')->name('bagudang.show');        
         Route::get('/beritaacara/gudang/{id}/print', 'BaGudang\BaGudangController@print')->name('bagudang.print');
         Route::delete('/beritaacara/gudang/{id}', 'BaGudang\BaGudangController@destroy')->name('bagudang.destroy')->middleware('permission:scm-ba-hapus');
+        //tes
+        Route::get('/beritaacara/gudang/{id}/print2', 'BaGudang\BaGudangController@print2')->name('bagudang.print2');
     });
     //Event
         Route::get('/event/json', 'Event\EventController@json')->name('event.json');

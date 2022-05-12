@@ -14,10 +14,9 @@ class TipeMesinController extends Controller
     {
         $model = DB::table('hd_tipe_mesin as tipe')
             ->leftJoin('hd_jenis_mesin as jenis', 'jenis.id', '=', 'tipe.jenis_id')
-            ->select([
-               'tipe.*','jenis.jenis'
-            ])
-        ->get();
+        ->select([
+            'tipe.*','jenis.jenis'
+        ]);
 
         return DataTables::of($model)
             ->addIndexColumn()

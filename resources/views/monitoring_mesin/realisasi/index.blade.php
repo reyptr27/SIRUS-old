@@ -39,9 +39,9 @@
                                 <label for="">Kategori</label>
                                 <select name="filter_kategori" id="filter_kategori" class="form-control select2">
                                     <option value="">All</option>
-                                    <option value="Penambahan">Penambahan</option>
-                                    <option value="Penggantian">Penggantian</option>
-                                    <option value="Peminjaman">Peminjaman</option>
+                                    <option value="1">Penambahan</option>
+                                    <option value="2">Penggantian</option>
+                                    <option value="3">Peminjaman</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -57,9 +57,9 @@
                                 <label for="">Status</label>
                                 <select name="filter_status" id="filter_status" class="form-control select2">
                                     <option value="">All</option>
-                                    <option value="Rencana Pengiriman">Rencana Pengiriman</option>
-                                    <option value="Pengiriman dan Instalasi">Pengiriman dan Instalasi</option>
-                                    <option value="Selesai">Selesai</option>
+                                    <option value="2">Rencana Pengiriman</option>
+                                    <option value="3">Pengiriman dan Instalasi</option>
+                                    <option value="4">Selesai</option>
                                 </select>
                             </div>
                         </div>
@@ -101,17 +101,17 @@
                 serverSide: true,
                 ajax: '{{ route('monitoringmesin.realisasipengiriman.json') }}',
                 columns: [
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'header.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'tgl_approval', name: 'tgl_approval'},
-                    { data: 'nomor', name: 'nomor'},
-                    { data: 'kategori', name: 'kategori', className: "text-center"},
-                    { data: 'customer', name: 'customer'},
-                    { data: 'tgl_plan_kirim', name: 'tgl_plan_kirim'},
-                    { data: 'tgl_plan_instalasi', name: 'tgl_plan_instalasi'},
+                    { data: 'tgl_approval', name: 'header.tgl_approval'},
+                    { data: 'nomor', name: 'header.nomor'},
+                    { data: 'kategori', name: 'header.kategori', className: "text-center"},
+                    { data: 'customer', name: 'customer.nama_rs'},
+                    { data: 'tgl_plan_kirim', name: 'header.tgl_plan_kirim'},
+                    { data: 'tgl_plan_instalasi', name: 'header.tgl_plan_instalasi'},
                     { data: 'kol-kirim', name: 'kol-kirim'},
                     { data: 'kol-instalasi', name: 'kol-instalasi'},
-                    { data: 'status', name: 'status', className: "text-center"},
+                    { data: 'status', name: 'header.status', className: "text-center"},
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

@@ -13,7 +13,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Nomor Surat</a></li>
+        <li><a href="#">Surat Keluar</a></li>
         <li><a href="#">Surat Internal HD</a></li>
         <li class="active"><a href="{{ route('surat.hd.index') }}">List Surat Internal HD</a></li>
     </ol>
@@ -65,14 +65,14 @@
                 ajax: '{{ route('surat.hd.json') }}',
                 columns: [
                     //data = dari response data json
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'surat_hd.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'created_at', name: 'created_at', className: "text-center" },
-                    { data: 'no_surat', name: 'no_surat'},
-                    { data: 'kategori', name: 'kategori' },
-                    { data: 'nama_tujuan', name: 'nama_tujuan' },
-                    { data: 'keterangan', name: 'keterangan' },
-                    { data: 'name', name: 'name' },
+                    { data: 'created_at', name: 'surat_hd.created_at', className: "text-center" },
+                    { data: 'no_surat', name: 'surat_hd.no_surat'},
+                    { data: 'kategori', name: 'kategori_hd.kategori' },
+                    { data: 'nama_tujuan', name: 'tujuan_hd.nama_tujuan' },
+                    { data: 'keterangan', name: 'surat_hd.keterangan' },
+                    { data: 'name', name: 'users.name' },
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

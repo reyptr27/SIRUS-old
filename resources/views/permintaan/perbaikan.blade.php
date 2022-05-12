@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    SIMIT | Perbaikan
+    SIRUS | Perbaikan
 @endsection
     
 @section('content')
@@ -93,14 +93,14 @@
                 serverSide: true,
                 ajax: '{{ route('perbaikan.json') }}',
                 columns: [
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'perbaikan.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'created_at', name: 'created_at', className: "text-center" },
-                    { data: 'no_document', name: 'no_document'},
-                    { data: 'pemohon', name: 'pemohon'},
-                    { data: 'jenis', name: 'jenis'},
-                    { data: 'deskripsi', name: 'deskripsi'},
-                    { data: 'status', name: 'status'},
+                    { data: 'created_at', name: 'perbaikan.created_at', className: "text-center" },
+                    { data: 'no_document', name: 'perbaikan.no_document'},
+                    { data: 'pemohon', name: 'pemohon.name'},
+                    { data: 'jenis', name: 'jenis.kode'},
+                    { data: 'deskripsi', name: 'perbaikan.deskripsi'},
+                    { data: 'status', name: 'perbaikan.status'},
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

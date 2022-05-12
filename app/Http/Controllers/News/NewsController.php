@@ -19,8 +19,7 @@ class NewsController extends Controller
         ->select([
             'news.id','news.judul','news.konten','kategori.nama_kategori','updated_by.name as updated_by',
             'created_by.name as created_by','news.created_at','news.updated_at'
-        ])
-        ->get();
+        ]);
 
         return DataTables::of($news)
             ->addIndexColumn()

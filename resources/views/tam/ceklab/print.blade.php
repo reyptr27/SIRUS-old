@@ -161,7 +161,7 @@
                 <td widt>F-SRU-C-SBY-33</td>
             </tr>
         </table>
-        <center><img src="../public/assets/images/kop-surat.png"></center>
+        <center><img src="{{ asset('assets/images/kop-surat-iso.jpg') }}"></center>
         <hr>
         
         <p align="center" style="font-size:18px; padding-top:10px; margin-bottom:-5px">
@@ -199,31 +199,31 @@
             </tr>
             <tr>
                 <td align="left" rowspan="6"> Pemeriksaan</td>
-                <td align="left" colspan="3"> Tes / Pemeriksaan. Beri Tanda <img src="../public/assets/images/centang.jpg"height="15"> untuk tes yang diperlukan </td>
+                <td align="left" colspan="3"> Tes / Pemeriksaan. Beri Tanda <img src="{{ asset('assets/images/centang.jpg') }}"height="15"> untuk tes yang diperlukan </td>
             </tr>
             <tr>
 
                 <td align="left" colspan="2"> <label @if ($ba->pemeriksaan == 1 ) style="background-color: yellow;" @endif> 1. Tes Na dan K </label> </td>
-                <td align="center"> @if ($ba->pemeriksaan == 1 ) <img src="../public/assets/images/centang.jpg"height="15"> @endif</td>
+                <td align="center"> @if ($ba->pemeriksaan == 1 ) <img src="{{ asset('assets/images/centang.jpg') }}"height="15"> @endif</td>
             </tr>
             <tr>
                 <td align="left" colspan="2"> <label @if ($ba->pemeriksaan == 2 ) style="background-color: yellow;" @endif> 2. Tes air RO standar AAMI (lengkap) </label> </td>
-                <td align="center">@if ($ba->pemeriksaan == 2 ) <img src="../public/assets/images/centang.jpg"height="15"> @endif</td>
+                <td align="center">@if ($ba->pemeriksaan == 2 ) <img src="{{ asset('assets/images/centang.jpg') }}"height="15"> @endif</td>
             </tr>
             <tr>
                 <td align="left" colspan="2"> <label @if ($ba->pemeriksaan == 3 ) style="background-color: yellow;" @endif>3. Lainnya : Mikrobiologi (TPC) </label</td>
-                <td align="center">@if ($ba->pemeriksaan == 3 ) <img src="../public/assets/images/centang.jpg"height="15"> @endif</td>
+                <td align="center">@if ($ba->pemeriksaan == 3 ) <img src="{{ asset('assets/images/centang.jpg') }}"height="15"> @endif</td>
             </tr>
             <tr>
                 <td align="left" colspan="2"> <label @if ($ba->pemeriksaan == 4 ) style="background-color: yellow;" @endif> 4. Lainnya : Air Bersih (Kimia Kesehatan)</label></td>
-                <td align="center">@if ($ba->pemeriksaan == 4 ) <img src="../public/assets/images/centang.jpg"height="15"> @endif</td>
+                <td align="center">@if ($ba->pemeriksaan == 4 ) <img src="{{ asset('assets/images/centang.jpg') }}"height="15"> @endif</td>
             </tr>
             <tr>
                 <td align="left" colspan="2" > <label @if ($ba->pemeriksaan == 5 ) style="background-color: yellow;" @endif> 5. Lainnya : @if ($ba->pemeriksaan == 5 ) {{$ba->lainnya}} @endif</label></td>
                 <td align="center">
                 
                 
-                @if ($ba->pemeriksaan == 5 ) <img src="../public/assets/images/centang.jpg"height="15"> @endif
+                @if ($ba->pemeriksaan == 5 ) <img src="{{ asset('assets/images/centang.jpg') }}"height="15"> @endif
                 
                 </td>
             </tr>

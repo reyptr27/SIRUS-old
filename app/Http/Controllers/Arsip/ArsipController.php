@@ -25,7 +25,7 @@ class ArsipController extends Controller
                         'arsip.id','jenis_arsip.jenis_arsip','arsip.created_at','arsip.nomor','arsip.nama_arsip','jenis_arsip.dept_id',
                         'arsip.tgl_arsip','arsip.tahun','uploader.name as uploader','arsip.deskripsi','arsip.file_size',
                         'arsip.jumlah_download','arsip.format_file','arsip.upload_file','updater.name as updater','arsip.updated_at'
-                    ])->where(['arsip.delete_status' => 1])->get();
+                    ])->where(['arsip.delete_status' => 1]);
         }else{
             $arsip = DB::table('arsip')
             ->leftJoin('jenis_arsip', 'arsip.jenis_id', '=', 'jenis_arsip.id')
@@ -35,7 +35,7 @@ class ArsipController extends Controller
                 'arsip.id','jenis_arsip.jenis_arsip','arsip.created_at','arsip.nomor','arsip.nama_arsip','jenis_arsip.dept_id',
                 'arsip.tgl_arsip','arsip.tahun','uploader.name as uploader','arsip.deskripsi','arsip.file_size',
                 'arsip.jumlah_download','arsip.format_file','arsip.upload_file','updater.name as updater','arsip.updated_at'
-            ])->where(['arsip.delete_status' => 1, 'jenis_arsip.dept_id'=>$user->dept_id])->get();
+            ])->where(['arsip.delete_status' => 1, 'jenis_arsip.dept_id'=>$user->dept_id]);
         }
         return DataTables::of($arsip)
             ->addIndexColumn()
@@ -235,7 +235,7 @@ class ArsipController extends Controller
                     'arsip.id','jenis_arsip.jenis_arsip','arsip.created_at','arsip.nomor','arsip.nama_arsip','jenis_arsip.dept_id',
                     'arsip.tgl_arsip','arsip.tahun','uploader.name as uploader','arsip.deskripsi','arsip.file_size','delete.name as deleted_by',
                     'arsip.jumlah_download','arsip.format_file','arsip.upload_file','updater.name as updater','arsip.updated_at','dept.kode_departemen'
-                ])->where(['arsip.delete_status' => 2])->get();
+                ])->where(['arsip.delete_status' => 2]);
 
         return DataTables::of($arsip)
             ->addIndexColumn()

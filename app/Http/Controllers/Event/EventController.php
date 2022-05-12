@@ -28,8 +28,7 @@ class EventController extends Controller
                     'event.id','event.tanggal','event.nama_event','event.keterangan','event.lokasi', 'event.jenis_event',
                     'users.name as created_by','event.created_at','event_dept.dept_id','event.all_dept'
                 ])
-                ->groupBy('event.id')
-                ->get();
+            ->groupBy('event.id');
         }else{
             $event = DB::table('event')
                 ->leftJoin('users', 'users.id', '=', 'event.created_by')
@@ -39,8 +38,7 @@ class EventController extends Controller
                     'users.name as created_by','event.created_at','event_dept.dept_id','event.all_dept'
                 ])
                 ->where(['event_dept.dept_id' => $user->dept_id])->orWhere(['event.all_dept' => 1])
-                ->groupBy('event.id')
-                ->get(); 
+            ->groupBy('event.id'); 
         }
         
         return DataTables::of($event)

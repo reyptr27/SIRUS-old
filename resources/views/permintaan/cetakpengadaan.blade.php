@@ -183,7 +183,8 @@
                     </td>
 
                     <td colspan="2" valign="top" > Kepala Divisi / BOM : <br><br><br><br><br><br> 
-                        ( Herman Harsono )
+                        {{-- ( Herman Harsono ) --}}
+                        (  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 
                     </td>                   
                     

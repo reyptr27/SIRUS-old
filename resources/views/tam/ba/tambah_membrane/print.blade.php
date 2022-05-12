@@ -221,13 +221,14 @@
             Demikian Berita Acara ini kami buat sebagai bentuk pelayanan perawatan kualitas dari unit 
             Water Treatment Reverse Osmosis System sebagai pendukung pelayanan dialysis.
         </p>
-        <br><br>
+        <br>
 
         <p style="font-size:16px; text-align:left; margin-left:20px; margin-right:20px;">
             Surabaya,  {{date('d', strtotime($ba->created_at))}} 
             &nbsp;{{ getBulan(date('m', strtotime($ba->created_at) )) }}
             &nbsp;{{date('Y', strtotime($ba->created_at))}} 
         </p>
+        <br>
         <table width=100% style="font-size:16px; margin-left:-5px;margin-right:0px; margin-top:-25px">
             <tr>
                 <td colspan="3"  align="center" style="height:30px">

@@ -2,6 +2,7 @@
 <?php
     use App\User; use App\Models\Surattugas\Surat_Tugas;
     use App\Models\CAPA\CAPA;
+    use App\Models\Nomorsurat\SuratMasuk;
 
     $auth = Auth::user();
     $a = User::where(['atasan_id' => $auth->id, 'active' => 1])->get();
@@ -18,6 +19,9 @@
 
     $capa = CAPA::where(['verifikator_id' => $auth->id, 'status' => 1])->get();
     $jumlah_capa = count($capa);
+
+    //Surat Masuk
+    $jumlah_suratmasuk = SuratMasuk::where(['up_id' => $auth->id, 'tindakan' => 1])->count();
 ?> 
 <!-- end untuk notifikasi -->
 
@@ -54,7 +58,9 @@
 
             @include('layouts.sidebar.berita-acara')
             @include('layouts.sidebar.capa')
-            @include('layouts.sidebar.nomorsurat')
+            {{-- @include('layouts.sidebar.nomorsurat') --}}
+            @include('layouts.sidebar.suratkeluar')
+            @include('layouts.sidebar.suratmasuk')
             @include('layouts.sidebar.formulirhrd')
             @include('layouts.sidebar.surattugas')
             @include('layouts.sidebar.earsip')    

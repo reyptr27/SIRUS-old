@@ -19,16 +19,15 @@ class UserController extends Controller
     public function json()
     {
         $users = DB::table('users')
-            ->leftJoin('m_cabang', 'm_cabang.id', '=', 'users.cabang_id')
-            ->leftJoin('m_departemen', 'm_departemen.id', '=', 'users.dept_id')
-            ->leftJoin('users as atasan', 'atasan.id', '=', 'users.atasan_id')
-            ->select([
-                'users.id','users.name', 'users.nik','users.email','users.jabatan','users.username',
-                'users.no_telp','users.cabang_id','m_cabang.nama_cabang','m_cabang.kode_cabang',
-                'users.dept_id','m_departemen.nama_departemen','m_departemen.kode_departemen','users.atasan_id',
-                'atasan.name as nama_atasan','users.active','users.image','users.created_at','users.updated_at'
-            ])
-        ->get(); 
+        ->leftJoin('m_cabang', 'm_cabang.id', '=', 'users.cabang_id')
+        ->leftJoin('m_departemen', 'm_departemen.id', '=', 'users.dept_id')
+        ->leftJoin('users as atasan', 'atasan.id', '=', 'users.atasan_id')
+        ->select([
+            'users.id','users.name', 'users.nik','users.email','users.jabatan','users.username',
+            'users.no_telp','users.cabang_id','m_cabang.nama_cabang','m_cabang.kode_cabang',
+            'users.dept_id','m_departemen.nama_departemen','m_departemen.kode_departemen','users.atasan_id',
+            'atasan.name as nama_atasan','users.active','users.image','users.created_at','users.updated_at'
+        ]); 
     
         return DataTables::of($users)
             ->addIndexColumn()

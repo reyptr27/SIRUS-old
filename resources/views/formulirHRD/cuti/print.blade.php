@@ -67,7 +67,7 @@
 </head>
 <body>
     <?php
-        use App\User; use App\Models\Departemen; use App\Models\Cabang;
+        use App\User; use App\Models\Departemen; use App\Models\Cabang; use App\Models\Divisi;
         $karyawan = User::where(['id' => $form->karyawan_id])->first();
         $dept = Departemen::where(['id' => $karyawan->dept_id])->first();
         $cab = Cabang::where(['id' => $karyawan->cabang_id])->first();
@@ -561,5 +561,142 @@
         </table>
     </div>
 @endif
+    {{-- Form Deklarasi Covid-19  --}}
+    <div class="page-break"></div>
+    <div style="font-size: 9pt;">
+        <h2 style="margin-bottom:0px;"><u><center>FORM DEKLARASI KESEHATAN<center></u></h2>
+        <p style="margin-top:0px;"><center><font size="9pt">(Pencegahan Penyebaran Covid-19)</font></center></p>
+        <br>
+        <p style="margin-left: 40px;">Saya yang bertandatangan di bawah ini :</p>
+        <table border="0" width="100%" cellpadding="4" cellspacing="0" style="margin-left:40px;margin-right:100px;">
+            <tr>
+                <td width="25%">Nama</td>
+                <td width="1%">:</td>
+                <td class="bottom" colspan="4">{{ $karyawan->name }}</td>
+            </tr>
+            <tr>
+                <td>No.ID Karyawan</td>
+                <td>:</td>
+                <td class="bottom" colspan="4">{{ $karyawan->nik }}</td>
+            </tr>
+            <tr>
+                <td>Jabatan</td>
+                <td>:</td>
+                <td class="bottom" colspan="4">{{ $karyawan->jabatan }}</td>
+            </tr>
+            <tr>
+                <td>Divisi</td>
+                <td>:</td>
+                <td class="bottom" colspan="4">
+                    <?php 
+                        $divisi = Divisi::where('id', $dept->divisi_id)->first();
+
+                        if($divisi != null){
+                            echo $divisi->nama_divisi;
+                        }else {
+                            echo "-";
+                        }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Departemen</td>
+                <td>:</td>
+                <td class="bottom" colspan="4">{{ $dept->nama_departemen }}</td>
+            </tr>
+            <tr>
+                <td>Tanggal Mulai Bekerja</td>
+                <td>:</td>
+                <td class="bottom" colspan="4">{{ date('d-m-Y', strtotime($form->tanggal_bergabung)) }}</td>
+            </tr>
+            <tr>
+                <td>Lokasi Kerja</td>
+                <td>:</td>
+                <td class="bottom" colspan="4">{{ $cab->nama_cabang }}</td>
+            </tr>
+            <tr>
+                <td>Alamat Tinggal</td>
+                <td>:</td>
+                <td class="bottom" colspan="4">{{ $form->alamat }}</td>
+            </tr>
+            <tr>
+                <td>Tanggal Cuti</td>
+                <td>:</td>
+                <td width="20%" class="bottom" align="center">{{ date('d-m-Y',strtotime($form->tanggal_awal)) }}</td>
+                <td width="5%" align="center">s/d</td>
+                <td width="20%" class="bottom" align="center">{{ date('d-m-Y',strtotime($form->tanggal_akhir)) }}</td>
+                <td width="15%" align="right">({{$x+1}} Hari Kerja)</td>
+            </tr>
+        </table>
+        <br>
+        <p style="margin-left: 40px;margin-right:60px;" align="justify">
+            Sehubungan dengan pengajuan cuti Saya kepada Perusahaan dengan mempertimbangkan kondisi pandemi 
+            Covid-19 saat ini, maka dengan ini menyatakan bahwa Saya akan mengikuti dan mematuhi protokol 
+            pencegahan COVID-19 selama Saya menjalankan cuti adalah sebagai berikut :
+        </p>
+
+        <table border="0" width="100%" cellpadding="4" cellspacing="0" style="margin-left:40px;margin-right:50px;">
+            <tr>
+                <td valign="top">1.</td>
+                <td align="justify">
+                    Menghindari tempat yang memiliki potensi penyebaran virus covid 19, 
+                    seperti kerumunan orang atau tempat-tempat wisata, 
+                    menghindari lokasi dengan ruangan tertutup dan minim cahaya matahari.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">2.</td>
+                <td align="justify">
+                    Selalu mematuhi protokol 5M yaitu <i>Mencuci tangan, Memakai masker, 
+                    Menjaga jarak, Membatasi mobilitas dan interaksi dan Menjauhi kerumunan.</i>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">3.</td>
+                <td align="justify">
+                    Bersedia melakukan Rapid Test Swab Antigen (PCR Test jika diperlukan) 
+                    secara mandiri setelah masa cuti dan melaporkan hasilnya berupa Surat 
+                    Keterangan yang valid kepada HRD sebelum kembali bekerja.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">4.</td>
+                <td align="justify">
+                    Tidak memasuki lokasi bekerja sebelum mendapatkan konfirmasi dari HRD atas hasil test tersebut.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">5.</td>
+                <td align="justify">
+                    Melakukan isolasi ruang kerja selama 7 (tujuh) hari di ruangan yang telah disediakan oleh 
+                    Perusahaan bagi Karyawan yang baru kembali bekerja dan telah melakukan 
+                    Rapid Test Swab Antigen maupun PCR test.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">6.</td>
+                <td align="justify">
+                    Mengisi Form Self Assessment Resiko Covid-19 satu hari sebelum kembali bekerja.
+                </td>
+            </tr>
+        </table>
+
+        <p style="margin-left: 40px;margin-right:60px;" align="justify">
+            Demikian pernyataan ini saya sampaikan dalam kondisi sehat, dan tanpa paksaan dari pihak manapun juga. <br><br>
+            <u>Surabaya</u>, <u>{{ date('d-m-Y', strtotime($form->created_at)) }} </u> <br>
+            Yang Menyatakan,
+            <br>
+            <br>
+            <br>
+            <i>Materai 10000</i>
+            <br>
+            <br>
+            <br>
+            <u>{{ $karyawan->name }}</u><br>
+            Karyawan
+        </p>
+       
+        
+    </div>
 </body>
 </html>

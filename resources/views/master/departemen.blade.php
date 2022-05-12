@@ -48,6 +48,15 @@
                                                 <input type="text" name="kode_departemen" class="form-control" placeholder="Kode Departemen" required>
                                             </div>    
                                             <div class="form-group">
+                                                <label for="">Divisi</label>
+                                                <select name="divisi_id" class="form-control" required>
+                                                    <option value="" disabled selected>Pilih Divisi</option>
+                                                    @foreach ($divisis as $divisi)
+                                                    <option value="{{ $divisi->id }}">{{ $divisi->nama_divisi }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>  
+                                            <div class="form-group">
                                                 <label for="">Status</label>
                                                 <select name="status" class="form-control" required>
                                                     <option value="1">Aktif</option>
@@ -72,6 +81,7 @@
                                     <th class="text-center">#</th>
                                     <th class="text-center">NAMA DEPARTEMEN</th>
                                     <th class="text-center">KODE DEPT</th>
+                                    <th class="text-center">DIVISI</th>
                                     <th class="text-center">STATUS</th>
                                     <th class="text-center">ACTION</th>
                                 </thead>
@@ -82,6 +92,13 @@
                                         <td class="text-center">{{ $i++ }}</td>
                                         <td>{{ $departemen->nama_departemen }}</td>
                                         <td>{{ $departemen->kode_departemen }}</td>
+                                        <td>
+                                            @if($departemen->divisi_id != null)
+                                                {{ $departemen->divisi->nama_divisi }}
+                                            @else 
+                                                <i>(kosong)</i>
+                                            @endif
+                                        </td>
                                         <td class="text-center">
                                             @if($departemen->status == 1 )
                                                 <label class="label label-success">Aktif</label>
@@ -126,7 +143,15 @@
                                                             <label for="">Kode Departemen</label>
                                                             <input type="text" name="kode_departemen" placeholder="Nama Departemen" class="form-control" value="{{ $departemen->kode_departemen }}" required>
                                                         </div>
-                                                        
+                                                        <div class="form-group">
+                                                            <label for="">Divisi</label>
+                                                            <select name="divisi_id" class="form-control" required>
+                                                                <option value="" disabled selected>Pilih Divisi</option>
+                                                                @foreach ($divisis as $divisi)
+                                                                    <option value="{{ $divisi->id }}" @if($divisi->id == $departemen->divisi_id) selected @endif>{{ $divisi->nama_divisi }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div> 
                                                         <div class="form-group">
                                                             <label for="">Status</label>
                                                             <select name="status" class="form-control" required>

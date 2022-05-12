@@ -67,11 +67,11 @@
                 serverSide: true,
                 ajax: '{{ route('monitoringmesin.tipe.json') }}',
                 columns: [
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'tipe.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'jenis', name: 'jenis', className: "text-center"},
-                    { data: 'tipe', name: 'tipe'},
-                    { data: 'created_at', name: 'created_at'},
+                    { data: 'jenis', name: 'jenis.jenis', className: "text-center"},
+                    { data: 'tipe', name: 'tipe.tipe'},
+                    { data: 'created_at', name: 'tipe.created_at'},
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

@@ -70,12 +70,13 @@ class excelExport implements FromView
         
         return view('permintaan.exportperbaikan.excel', [
             'perbaikan' => DB::table('perbaikan')
-                    // ->join('users as pemohon', 'perbaikan.pemohon_id', '=', 'pemohon.id')
+                     ->join('users as pemohon', 'perbaikan.pemohon_id', '=', 'pemohon.id')
                     // ->join('pegawai as kepada', 'capa.kepada_id', '=', 'kepada.id')
                     // ->join('pegawai as pic', 'capa.pic_id', '=', 'pic.id')
                     // ->join('lokasi', 'capa.lokasi_id', '=', 'lokasi.id')
                     ->select(['perbaikan.id', 'perbaikan.created_at', 
-                    'perbaikan.no_document', 'perbaikan.deskripsi'
+                    'perbaikan.no_document', 'perbaikan.deskripsi',
+                    'pemohon.name as pemohon'
                         
                     ])
                     ->whereBetween('perbaikan.created_at', [$this->startDate." 00:00:00", $this->endDate." 23:00:00"])

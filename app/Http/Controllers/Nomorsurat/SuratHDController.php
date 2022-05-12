@@ -93,7 +93,7 @@ class SuratHDController extends Controller
                 ->select([
                     'surat_hd.id','surat_hd.no_surat','surat_hd.created_at',
                     'surat_hd.keterangan','tujuan_hd.nama_tujuan','kategori_hd.kategori','users.name'
-                ])->get();
+                ]);
         
         return DataTables::of($surat)
             ->addIndexColumn()

@@ -108,13 +108,13 @@
                 columns: [
                     { data: 'id', name: 'id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'jenis_arsip', name: 'jenis_arsip'},
+                    { data: 'jenis_arsip', name: 'jenis_arsip.jenis_arsip'},
                     { data: 'tgl_arsip', name: 'tgl_arsip', className: "text-center"},
                     { data: 'nomor', name: 'nomor' },
                     { data: 'nama_arsip', name: 'nama_arsip' },
                     { data: 'deskripsi', name: 'deskripsi', "visible": false },
                     { data: 'created_at', name: 'created_at', className: "text-center" },
-                    { data: 'uploader', name: 'uploader' },
+                    { data: 'uploader', name: 'uploader.name' },
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']

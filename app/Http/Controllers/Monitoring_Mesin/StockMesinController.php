@@ -24,9 +24,10 @@ class StockMesinController extends Controller
             ->leftJoin('hd_tipe_mesin as tipe', 'tipe.id', '=', 'stock.tipe_id')
             ->leftJoin('hd_jenis_mesin as jenis', 'jenis.id', '=', 'tipe.jenis_id')
             ->select([
-                'stock.id','stock.tgl_terima','jenis.jenis','tipe.tipe','stock.nomor','stock.kondisi','gudang.nama_gudang as gudang','customer.nama_rs as customer','stock.created_at'
+                'stock.id','stock.tgl_terima','jenis.jenis','tipe.tipe','stock.nomor','stock.kondisi',
+                'gudang.nama_gudang as gudang','customer.nama_rs as customer','stock.created_at'
             ])
-        ->where(['stock.status' => 1])->get();
+        ->where(['stock.status' => 1]);
 
         return DataTables::of($model)
             ->addIndexColumn()
@@ -42,37 +43,37 @@ class StockMesinController extends Controller
                     return "Rekondisi";
                 }
             })
-            ->filter(function ($instance) use ($request) {
-                //custom filter
-                if (!empty($request->get('filter_jenis'))) {
-                    $instance->collection = $instance->collection->filter(function ($row) use ($request) {
-                        return Str::contains($row['jenis'], $request->get('filter_jenis')) ? true : false;
-                    });
-                }
+            // ->filter(function ($instance) use ($request) {
+            //     //custom filter
+            //     if (!empty($request->get('filter_jenis'))) {
+            //         $instance->collection = $instance->collection->filter(function ($row) use ($request) {
+            //             return Str::contains($row['jenis'], $request->get('filter_jenis')) ? true : false;
+            //         });
+            //     }
                 
-                //Search
-                if (!empty($request->get('search'))) {
-                    $instance->collection = $instance->collection->filter(function ($row) use ($request) {
-                        if (Str::contains(Str::lower($row['tgl_terima']), Str::lower($request->get('search')))){
-                            return true;
-                        }else if (Str::contains(Str::lower($row['jenis']), Str::lower($request->get('search')))) {
-                            return true;
-                        }else if (Str::contains(Str::lower($row['tipe']), Str::lower($request->get('search')))) {
-                            return true;
-                        }else if (Str::contains(Str::lower($row['nomor']), Str::lower($request->get('search')))) {
-                            return true;
-                        }else if (Str::contains(Str::lower($row['kondisi']), Str::lower($request->get('search')))) {
-                            return true;
-                        }else if (Str::contains(Str::lower($row['gudang']), Str::lower($request->get('search')))) {
-                            return true;
-                        }else if (Str::contains(Str::lower($row['customer']), Str::lower($request->get('search')))) {
-                            return true;
-                        }
+            //     //Search
+            //     if (!empty($request->get('search'))) {
+            //         $instance->collection = $instance->collection->filter(function ($row) use ($request) {
+            //             if (Str::contains(Str::lower($row['tgl_terima']), Str::lower($request->get('search')))){
+            //                 return true;
+            //             }else if (Str::contains(Str::lower($row['jenis']), Str::lower($request->get('search')))) {
+            //                 return true;
+            //             }else if (Str::contains(Str::lower($row['tipe']), Str::lower($request->get('search')))) {
+            //                 return true;
+            //             }else if (Str::contains(Str::lower($row['nomor']), Str::lower($request->get('search')))) {
+            //                 return true;
+            //             }else if (Str::contains(Str::lower($row['kondisi']), Str::lower($request->get('search')))) {
+            //                 return true;
+            //             }else if (Str::contains(Str::lower($row['gudang']), Str::lower($request->get('search')))) {
+            //                 return true;
+            //             }else if (Str::contains(Str::lower($row['customer']), Str::lower($request->get('search')))) {
+            //                 return true;
+            //             }
 
-                        return false;
-                    });
-                }
-            })
+            //             return false;
+            //         });
+            //     }
+            // })
             ->addColumn('action', 'monitoring_mesin.stock.action')
             ->rawColumns(['action'])
             ->escapeColumns([]) //untuk mengaplikasikan html syntax

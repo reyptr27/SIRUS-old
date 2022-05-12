@@ -58,9 +58,9 @@
                                 <label for="">Kondisi</label>
                                 <select name="filter_kondisi" id="filter_kondisi" class="form-control select2">
                                     <option value="">All</option>
-                                    <option value="Baru">Baru</option>
-                                    <option value="Bekas">Bekas</option>
-                                    <option value="Rekondisi">Rekondisi</option>
+                                    <option value="1">Baru</option>
+                                    <option value="2">Bekas</option>
+                                    <option value="3">Rekondisi</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -124,15 +124,15 @@
                     }
                 },
                 columns: [
-                    { data: 'id', name: 'id', "visible": false },
+                    { data: 'id', name: 'stock.id', "visible": false },
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false, className: "text-center"},
-                    { data: 'tgl_terima', name: 'tgl_terima'},
-                    { data: 'jenis', name: 'jenis'},
-                    { data: 'tipe', name: 'tipe'},
-                    { data: 'nomor', name: 'nomor'},
-                    { data: 'kondisi', name: 'kondisi'},
-                    { data: 'gudang', name: 'gudang'},
-                    { data: 'customer', name: 'customer'},
+                    { data: 'tgl_terima', name: 'stock.tgl_terima'},
+                    { data: 'jenis', name: 'jenis.jenis'},
+                    { data: 'tipe', name: 'tipe.tipe'},
+                    { data: 'nomor', name: 'stock.nomor'},
+                    { data: 'kondisi', name: 'stock.kondisi'},
+                    { data: 'gudang', name: 'gudang.nama_gudang'},
+                    { data: 'customer', name: 'customer.nama_rs'},
                     { data: 'action', name: 'action', orderable: false, searchable: false, className: "text-center"},
                 ],
                 "order": [0, 'DESC']
