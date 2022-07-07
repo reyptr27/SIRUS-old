@@ -655,12 +655,26 @@
                 <td valign="top">3.</td>
                 <td align="justify">
                     Bersedia melakukan Rapid Test Swab Antigen (PCR Test jika diperlukan) 
-                    secara mandiri <strong>(Bila bergejala)</strong> setelah masa cuti dan melaporkan hasilnya berupa Surat 
+                    secara mandiri setelah masa cuti dan melaporkan hasilnya berupa Surat 
                     Keterangan yang valid kepada HRD sebelum kembali bekerja.
                 </td>
             </tr>
             <tr>
                 <td valign="top">4.</td>
+                <td align="justify">
+                    Tidak memasuki lokasi bekerja sebelum mendapatkan konfirmasi dari HRD atas hasil test tersebut.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">5.</td>
+                <td align="justify">
+                    Melakukan isolasi ruang kerja selama 7 (tujuh) hari di ruangan yang telah disediakan oleh 
+                    Perusahaan bagi Karyawan yang baru kembali bekerja dan telah melakukan 
+                    Rapid Test Swab Antigen maupun PCR test.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">6.</td>
                 <td align="justify">
                     Mengisi Form Self Assessment Resiko Covid-19 satu hari sebelum kembali bekerja.
                 </td>
