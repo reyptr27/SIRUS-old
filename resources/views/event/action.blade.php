@@ -145,7 +145,7 @@
         </div>
         <form action="{{ route('event.destroy', $id) }}" method="post">
             {{ csrf_field() }}
-            {{ method_field('DELETE') }}
+            {{ method_field('delete') }}
             <div class="modal-footer">
                 <center>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-trash-o"></i> HAPUS</button>

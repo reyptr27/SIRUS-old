@@ -56,18 +56,16 @@ class NotulenController extends Controller
        
         $notulen->save();
 
-        $i = 0;
-        foreach($request->deskripsi as $row){
+        foreach($request->deskripsi as $key => $row){
             $detail = new Notulen_Detail;
             $detail->notulen_id = $notulen->id;
-            $detail->deskripsi  = $request->deskripsi[$i];
-            $detail->dept_id    = $request->dept_id[$i];
-            $detail->tgl_target = $request->tgl_target[$i];
-            $detail->realisasi  = $request->realisasi[$i];
-            $detail->notes      = $request->notes[$i];
-            $detail->status     = $request->status[$i];
+            $detail->deskripsi  = $request->deskripsi[$key];
+            $detail->dept_id    = $request->dept_id[$key];
+            $detail->tgl_target = $request->tgl_target[$key];
+            $detail->realisasi  = $request->realisasi[$key];
+            $detail->notes      = $request->notes[$key];
+            $detail->status     = $request->status[$key];
             $detail->save();
-            $i++;
         }
 
         return redirect()->route('event.index')->withSuccess('Notulen berhasil dibuat');
@@ -101,18 +99,17 @@ class NotulenController extends Controller
         if($notulen_detail){
             $notulen_detail->each->delete();
         }
-        $i = 0;
-        foreach($request->deskripsi as $row){
+
+        foreach($request->deskripsi as $key => $row){
             $detail = new Notulen_Detail;
             $detail->notulen_id = $notulen->id;
-            $detail->deskripsi  = $request->deskripsi[$i];
-            $detail->dept_id    = $request->dept_id[$i];
-            $detail->tgl_target = $request->tgl_target[$i];
-            $detail->realisasi  = $request->realisasi[$i];
-            $detail->notes      = $request->notes[$i];
-            $detail->status     = $request->status[$i];
+            $detail->deskripsi  = $request->deskripsi[$key];
+            $detail->dept_id    = $request->dept_id[$key];
+            $detail->tgl_target = $request->tgl_target[$key];
+            $detail->realisasi  = $request->realisasi[$key];
+            $detail->notes      = $request->notes[$key];
+            $detail->status     = $request->status[$key];
             $detail->save();
-            $i++;
         }
 
         return redirect()->route('event.index')->withSuccess('Notulen berhasil diupdate');

@@ -59,5 +59,6 @@
     })
   </script>
   @yield('js-extra')
+  @stack('stack-script')
 </body>
 </html>

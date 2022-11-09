@@ -167,7 +167,7 @@
                 <div class="user-block">
                 <img class="img-circle img-bordered-sm" src="{{asset('images/profile/default-profile.jpg')}}" alt="user image">
                 <span class="username">
-                    <a href="#">Reynaldo Putra Koesmita</a>
+                    <a href="https://reynaldo.netlify.app">Reynaldo Putra Koesmyta</a>
                 </span>
                 <span class="description"><h4>+62 878-5540-0002</h4></span>
                 </div>

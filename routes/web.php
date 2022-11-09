@@ -314,6 +314,24 @@ Route::group(['middleware' => ['auth']], function () {
         Route::patch('/program/updatestatus/{id}','Permintaan\ProgramController@updatestatus')->name('program.updatestatus');
     //END Permintaan IT
 
+    // Audit-IT
+
+    //Email
+    Route::get('/audit-email/json', 'Audit\AuditEmailController@json')->name('audit-email.json');
+    Route::get('/audit-email', 'Audit\AuditEmailController@index')->name('audit-email.index');
+    Route::post('/audit-email', 'Audit\AuditEmailController@store')->name('audit-email.store');
+    Route::patch('/audit-email/{id}', 'Audit\AuditEmailController@update')->name('audit-email.update');
+    Route::delete('/audit-email/{id}', 'Audit\AuditEmailController@destroy')->name('audit-email.destroy');
+    //Route::get('/audit-email/create', 'Audit\AuditEmailController@create')->name('audit-email.create');
+    
+
+    //Lokasi
+    Route::get('/audit-lokasi', 'Audit\AuditLokasiController@index')->name('audit-lokasi.index');
+    Route::post('/audit-lokasi', 'Audit\AuditLokasiController@store')->name('audit-lokasi.store');
+    Route::patch('/audit-lokasi/{id}', 'Audit\AuditLokasiController@update')->name('audit-lokasi.update');
+    Route::delete('/audit-lokasi/{id}', 'Audit\AuditLokasiController@destroy')->name('audit-lokasi.destroy');
+    // END Audit-IT
+
     //Account Receivable
         //Master Customer
         Route::get('/customer/json', 'Master\CustomerController@json')->name('customer.json');

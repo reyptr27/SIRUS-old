@@ -78,10 +78,10 @@
                                     <tr id="row{{$i}}">
                                         <td class="text-center">{{ $i }}</td>
                                         <td>
-                                            <textarea name="deskripsi[]" placeholder="Deskripsi" class="form-control" required @if($detail->status > 1) readonly @endif>{{ $detail->deskripsi }}</textarea>
+                                            <textarea name="deskripsi[]" placeholder="Deskripsi" class="form-control" required>{{ $detail->deskripsi }}</textarea>
                                         </td>
                                         <td>
-                                            <select name="dept_id[]" class="form-control selectpicker" data-live-search="true" required @if($detail->status > 1) readonly @endif>
+                                            <select name="dept_id[]" class="form-control selectpicker" data-live-search="true" >
                                                 <option value="" disabled selected>Pilih Departemen readonly
                                                 @foreach($departemens as $dept)
                                                     <option value="{{ $dept->id }}" @if($dept->id == $detail->dept_id) selected @endif>{{ $dept->nama_departemen }}</option>
@@ -89,22 +89,22 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <input type="date" name="tgl_target[]" class="form-control" value="{{ $detail->tgl_target }}" required @if($detail->status > 1) readonly @endif>
+                                            <input type="date" name="tgl_target[]" class="form-control" value="{{ $detail->tgl_target }}" required>
                                         </td>
                                         <td>
-                                            <textarea name="realisasi[]" placeholder="Realisasi" class="form-control" required @if($detail->status > 1) readonly @endif>{{ $detail->realisasi }}</textarea>
+                                            <textarea name="realisasi[]" placeholder="Realisasi" class="form-control">{{ $detail->realisasi }}</textarea>
                                         </td>
                                         <td>
-                                            <textarea name="notes[]" placeholder="Notes" class="form-control" @if($detail->status > 1) readonly @endif>{{ $detail->notes }}</textarea>
+                                            <textarea name="notes[]" placeholder="Notes" class="form-control">{{ $detail->notes }}</textarea>
                                         </td>
                                         <td>
-                                            <select name="status[]" class="form-control" required @if($detail->status > 1) readonly @endif>
+                                            <select name="status[]" class="form-control" required>
                                                 <option value="" disabled selected>Pilih Status</option>
                                                 <option value="1" @if($detail->status == 1) selected @endif>Process</option>
                                                 <option value="2" @if($detail->status == 2) selected @endif>Done</option>
                                                 <option value="3" @if($detail->status == 3) selected @endif>Cancel</option>
                                             </select>
-                                        </td>
+                                        </td>  
                                         <td>
                                             @if($i > 1)
                                                 @if($detail->status == 1)

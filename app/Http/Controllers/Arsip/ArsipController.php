@@ -16,7 +16,7 @@ class ArsipController extends Controller
     {   
         $user = Auth::user();
         $role = $user->roles->pluck('name')->first();
-        if($user->hasPermissionTo('arsip-all')){
+        if($user->hasPermissionTo('audit-it')){
             $arsip = DB::table('arsip')
                     ->leftJoin('jenis_arsip', 'arsip.jenis_id', '=', 'jenis_arsip.id')
                     ->leftJoin('users as uploader', 'arsip.created_by', '=', 'uploader.id')

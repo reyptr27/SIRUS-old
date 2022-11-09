@@ -141,7 +141,7 @@
                         <tr>
                            <td valign=top>Kegiatan</td>
                             <td valign=top><span style="margin-left: 40px;">:</span></td>
-                            <td valign=top>  {{ $surattugas->kegiatan }}</td>
+                            <td valign=top>@php echo nl2br($surattugas->kegiatan) @endphp</td>
                         </tr>
 
                         <tr>

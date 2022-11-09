@@ -68,6 +68,7 @@
             @include('layouts.sidebar.monitoring-mesin')
             @include('layouts.sidebar.maintenance-cctv') 
             @include('layouts.sidebar.permintaan-it')
+            @include('layouts.sidebar.audit-it')
             @include('layouts.sidebar.telegram')
             @include('layouts.sidebar.manualbook')
             

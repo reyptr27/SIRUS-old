@@ -36,11 +36,11 @@
                 </li>
                 @endcan
                 @can('tam-ba')
-                <li class="{{ set_active(['chemical_ro.index','chemical_ro.create','chemical_ro.edit']) }}">
+                {{-- <li class="{{ set_active(['chemical_ro.index','chemical_ro.create','chemical_ro.edit']) }}">
                     <a href="{{ route('chemical_ro.index')}}">
                         <i class="fa fa-book"></i> Chemical RO
                     </a>
-                </li>
+                </li> --}}
                 <li class="{{ set_active(['flushing.index','flushing.create','flushing.edit']) }}">
                     <a href="{{ route('flushing.index')}}">
                         <i class="fa fa-book"></i> Flushing Pipa
