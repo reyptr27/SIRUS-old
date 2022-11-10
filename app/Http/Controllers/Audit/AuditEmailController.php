@@ -8,6 +8,8 @@ use App\Models\Audit\AuditLokasi;
 use App\Models\Audit\AuditEmail;
 use App\Models\Departemen;
 use App\User;
+use App\Exports\Audit\Email\AuditEmailExport;
+use Maatwebsite\Excel\Excel;
 use Auth; 
 use DataTables; 
 use DB; 
@@ -15,6 +17,18 @@ use DB;
 
 class AuditEmailController extends Controller
 {
+    private $excel;
+
+    public function __construct(Excel $excel)
+    {
+        $this->excel = $excel;
+    }
+
+    public function export() 
+    {
+        return $this->excel->download(new AuditEmailExport, 'auditemail.xlsx', Excel::XLSX);
+    }
+
     public function json()
     {
         $user = Auth::user();

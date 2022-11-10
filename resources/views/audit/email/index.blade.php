@@ -101,9 +101,9 @@
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#exportAuditEmail">
+                        <a class="btn btn-info pull-right" href="{{ route('audit-email.export') }}">
                             <i class="fa fa-upload"></i> Export
-                        </button>
+                        </a>
 
                     </div>
 

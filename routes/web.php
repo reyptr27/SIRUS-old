@@ -322,6 +322,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/audit-email', 'Audit\AuditEmailController@store')->name('audit-email.store');
     Route::patch('/audit-email/{id}', 'Audit\AuditEmailController@update')->name('audit-email.update');
     Route::delete('/audit-email/{id}', 'Audit\AuditEmailController@destroy')->name('audit-email.destroy');
+    Route::get('/audit-email/export/', 'Audit\AuditEmailController@export')->name('audit-email.export');
     //Route::get('/audit-email/create', 'Audit\AuditEmailController@create')->name('audit-email.create');
     
 

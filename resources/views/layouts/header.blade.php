@@ -1,7 +1,7 @@
 <header class="main-header">
     <!-- Logo -->
     <a href="{{ url('/') }}" class="logo">
-        <span class="logo-mini">SIRU<b>S</b></span>
+        <span style="font-size: 15px;" class="logo-mini">SIRU<b>S</b></span>
         <span class="logo-lg">SRU <b>Surabaya</b></span>
     </a>
     <!-- Header Navbar -->
