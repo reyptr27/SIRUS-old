@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Arsip\Arsip;
-use App\Models\CAPA\CAPA;
-use App\Models\Event\Event;
-use App\Models\Nomorsurat\Surat_eksternal;
 use Storage;
+use App\User;
+use Carbon\Carbon;
+use App\Models\CAPA\CAPA;
+use App\Models\Departemen;
+use App\Models\Arsip\Arsip;
+use App\Models\Event\Event;
+use Illuminate\Http\Request;
+use App\Models\Permintaan\Program;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+use App\Models\Permintaan\Pengadaan;
+use App\Models\Permintaan\Perbaikan;
+use App\Models\Nomorsurat\Surat_eksternal;
 
 class DashboardController extends Controller
 {
@@ -22,8 +30,70 @@ class DashboardController extends Controller
         $jumlah_capa  = count(CAPA::all());
         $jumlah_surat_eksternal  = count(Surat_eksternal::all());
         $jumlah_event  = count(Event::all());
+       
+        //piechart
+        $dept = Departemen::where([
+            ['status',1],
+            ['nama_departemen', '!=' , 'All Department']
+        ])->pluck('kode_departemen');
+        
+        $user = User::orderBy('dept_id')->where([
+                ['active', 4],
+                ['dept_id', '!=' , 17]
+            ])->pluck('dept_id')->toArray();
+        $countuser = array_count_values($user);
+        $usercount = array_flatten($countuser);
+        
+        $totaluser = User::where([
+            ['active', 4],
+            ['dept_id', '!=' , 17]
+        ])->count();
+        //end piechart
 
-        return view('dashboard',compact('jumlah_arsip','jumlah_capa', 'jumlah_surat_eksternal','jumlah_event'));
+        //areachart
+        $periode = Carbon::now();
+
+        $perbaikan = Perbaikan::select(DB::raw('MONTH(created_at) month, count(*) as count'))
+            ->whereYear('created_at', Carbon::now()->format('Y'))
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->pluck('count', 'month')
+            ->toArray();
+            
+        $dataperbaikan = array_map(function($month) use ($perbaikan){
+            return Arr::get($perbaikan, $month, 0);
+        }, range(1,12));
+          
+           
+        $pengadaan = Pengadaan::select(DB::raw('MONTH(created_at) month, count(*) as count'))
+            ->whereYear('created_at', Carbon::now()->format('Y'))
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->pluck('count', 'month')
+            ->toArray();
+
+        $datapengadaan = array_map(function($month) use ($pengadaan){
+            return Arr::get($pengadaan, $month, 0);
+        }, range(1,12));
+
+        $program = Program::select(DB::raw('MONTH(created_at) month, count(*) as count'))
+            ->whereYear('created_at', Carbon::now()->format('Y'))
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->pluck('count', 'month')
+            ->toArray();
+
+        $dataprogram= array_map(function($month) use ($program){
+            return Arr::get($program, $month, 0);
+        }, range(1,12));
+        
+        $totalperbaikan = array_sum($perbaikan);
+        $totalpengadaan = array_sum($pengadaan);
+        $totalprogram = array_sum($program);
+
+        $totalpermintaanit = $totalperbaikan + $totalpengadaan + $totalprogram;
+
+        //end areachart
+
+        //dd($datapengadaan);
+        return view('dashboard',compact('jumlah_arsip','jumlah_capa', 'jumlah_surat_eksternal','jumlah_event','dept','usercount','totaluser','periode','totalpermintaanit','dataperbaikan','datapengadaan','dataprogram'));
     }
 
     public function downloadpanduanregister()   {

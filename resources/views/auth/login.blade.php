@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2020. All rights reserved. Design by <a href="#">ITS SRU SBY</a>.</p>
+        <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2022. All rights reserved - Designed by <b style="color: #0088CC;">ITS SRU SBY</b>.</p>
       </div>
     </section>
     <!-- end: page -->
@@ -118,6 +118,12 @@
       @elseif(Session::has('success'))
         toastr.success("{{ Session::get('success') }}");
       @endif
+
+      $('img').attr('draggable', 'false');
+
+      $('img').bind('contextmenu', function(e) {
+        return false;
+      });
     </script>
   </body>
 </html>

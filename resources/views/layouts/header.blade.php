@@ -5,15 +5,17 @@
         <span class="logo-lg">SRU <b>Surabaya</b></span>
     </a>
     <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </a>
-
+        <div class="navbar-header">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </a> 
+        </div>
+        
         <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
             <!-- User Account -->
@@ -25,7 +27,8 @@
                 @else
                     <img src="{{ asset('images/profile/default-profile.jpg') }}" class="user-image" alt="User Image">
                 @endif
-                <span class="hidden-xs">{{ Auth()->user()->name }}</span>
+                <span class="hidden-xs">{{ Auth()->user()->name }} <i class="fa fa-angle-down" style="margin-left: 5px;"></i></span>
+                
             </a>
             <ul class="dropdown-menu">
                 <!-- User image -->

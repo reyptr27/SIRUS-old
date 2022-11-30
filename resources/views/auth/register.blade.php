@@ -277,6 +277,12 @@
                 $('#submit_button').attr('disabled', true); //disable input
             }
         });
+
+        $('img').attr('draggable', 'false');
+
+        $('img').bind('contextmenu', function(e) {
+            return false;
+        });
     </script>
   </body>
 </html>

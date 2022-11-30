@@ -302,7 +302,9 @@ Route::group(['middleware' => ['auth']], function () {
 
         //Program
         Route::get('/program/json', 'Permintaan\ProgramController@json')->name('program.json');
-        Route::get('/program', 'Permintaan\ProgramController@index')->name('program.index');
+        Route::get('/program', 'Permintaan\ProgramController@index')->name('program.index'
+    
+    );
         Route::get('/program/create', 'Permintaan\ProgramController@create')->name('program.create');
         Route::post('/program', 'Permintaan\ProgramController@store')->name('program.store');
         Route::get('/program/{id}', 'Permintaan\ProgramController@edit')->name('program.edit');
@@ -324,6 +326,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/audit-email/{id}', 'Audit\AuditEmailController@destroy')->name('audit-email.destroy');
     Route::get('/audit-email/export/', 'Audit\AuditEmailController@export')->name('audit-email.export');
     //Route::get('/audit-email/create', 'Audit\AuditEmailController@create')->name('audit-email.create');
+    
+    //PC
     
 
     //Lokasi

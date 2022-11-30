@@ -42,6 +42,7 @@
   <script type="text/javascript" src="{{ asset('assets/vendors/toastr/js/toast.js')}}"></script>
   <script src="{{ asset('assets/dist/js/bootstrap-select.js')}}"></script>
   <script src="{{ asset('assets/vendors/select2/js/select2.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/chart.js/Chart.bundle.min.js') }}"></script>
 
   <script type="text/javascript">
     @if(Session::has('danger'))
@@ -57,6 +58,19 @@
       $('.sidebar-menu').tree();
       $('.select2').select2();
     })
+
+    $('img').attr('draggable', 'false');
+
+    $('img').bind('contextmenu', function(e) {
+      return false;
+    });
+
+    $('.canvas-chart').attr('draggable', 'false');
+
+    $('.canvas-chart').bind('contextmenu', function(e) {
+      return false;
+    });
+    
   </script>
   @yield('js-extra')
   @stack('stack-script')
