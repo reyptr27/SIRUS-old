@@ -84,7 +84,10 @@ class EventController extends Controller
 
     public function create()
     {   
-        $departemens = Departemen::orderBy('nama_departemen', 'ASC')->get();
+        $departemens = Departemen::where([
+            ['status',1],
+            ['nama_departemen', '!=' , 'All Department']
+        ])->orderBy('nama_departemen', 'ASC')->get();
         return view('event.create', compact('departemens'));
     }
 

@@ -115,7 +115,7 @@
                 <div class="box box-primary">
                     
                     <div class="box-header with-border">
-                        <h3 class="box-title"> Permintaan <b style="color: #0088CC;">ITS</b></h3>
+                        <h3 class="box-title"> Form <b style="color: #0088CC;">ITS</b></h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -238,7 +238,6 @@
                         </div>
                     <!-- /userblock --> <hr>
                         <span>
-                            <br>
                             <p align="justify">
                             <strong>1. Informasi : </strong> Nama aplikasi <strong>Nomor Surat</strong> sekarang berganti menjadi <strong>Surat Keluar</strong>
                             </p><br>

@@ -93,7 +93,19 @@ class DashboardController extends Controller
         //end areachart
 
         //dd($datapengadaan);
-        return view('dashboard',compact('jumlah_arsip','jumlah_capa', 'jumlah_surat_eksternal','jumlah_event','dept','usercount','totaluser','periode','totalpermintaanit','dataperbaikan','datapengadaan','dataprogram'));
+        return view('dashboard',compact(
+            'jumlah_arsip','jumlah_capa',
+            'jumlah_surat_eksternal',
+            'jumlah_event',
+            'dept',
+            'usercount',
+            'totaluser',
+            'periode',
+            'totalpermintaanit',
+            'dataperbaikan',
+            'datapengadaan',
+            'dataprogram'
+        ));
     }
 
     public function downloadpanduanregister()   {
