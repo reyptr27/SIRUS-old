@@ -51,6 +51,14 @@ class DashboardController extends Controller
         //end piechart
 
         //areachart
+        $perbaikan_all = count(Perbaikan::all());
+        $pengadaan_all = count(Pengadaan::all());
+        $program_all = count(Program::all());
+
+        $totalformits = $perbaikan_all + $pengadaan_all + $program_all;
+
+        //dd($totalformits);
+
         $periode = Carbon::now();
 
         $perbaikan = Perbaikan::select(DB::raw('MONTH(created_at) month, count(*) as count'))
@@ -104,7 +112,8 @@ class DashboardController extends Controller
             'totalpermintaanit',
             'dataperbaikan',
             'datapengadaan',
-            'dataprogram'
+            'dataprogram',
+            'totalformits'
         ));
     }
 

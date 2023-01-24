@@ -181,7 +181,7 @@
             <td colspan="4" class="left right" align="justify" style="line-height: 1.5; padding-left:20px; padding-right: 20px;">
                 Pada hari ini <b>{{ hari_ini(date('D', strtotime($ba->tanggal) )) }}</b> tanggal <b>{{ terbilang(date('d', strtotime($ba->tanggal) )) }}</b> bulan 
                 <b>{{ getBulan(date('m', strtotime($ba->tanggal) )) }}</b> tahun <b>{{ terbilang(date('Y', strtotime($ba->tanggal) ) )}}&nbsp;({{date('d-m-Y', strtotime($ba->tanggal))}}),</b>
-                dengan ini telah dilakukan kalibrasi serta preventive maintenance pada mesin-mesin Hemodialisa di <b>{{$ba->nama_rs}}</b>, sebagai berikut :
+                dengan ini telah dilakukan kalibrasi serta preventive maintenance pada mesin-mesin Hemodialisis di <b>{{$ba->nama_rs}}</b>, sebagai berikut :
             </td>
         </tr>
         <tr>
@@ -203,7 +203,7 @@
                 {{$i}}
             </td>
             <td class="left top right bottom" align="center"> 
-                MESIN HEMODIALISA 
+                MESIN HEMODIALISIS 
             </td>
             <td class="left top right bottom" align="center">
                 @if($brg->merk == 1 )
@@ -226,10 +226,10 @@
         <tr>
             <td class="left right" colspan="4" style="line-height: 1.5;padding-left:20px;padding-right:20px;">
                 <br>
-                Hasil Pengujian / Kalibrasi menyatakan bahwa <b>MESIN HEMODIALISA LAYAK PAKAI</b>. <br><br>
+                Hasil Pengujian / Kalibrasi menyatakan bahwa <b>MESIN HEMODIALISIS LAYAK PAKAI</b>. <br><br>
 
                 Demikian Berita Acara ini kami buat sebagai bentuk pelayanan perawatan kualitas dari unit 
-                Hemodialisa dan sebagai pendukung pelayanan dialysis.
+                Hemodialisis dan sebagai pendukung pelayanan dialysis.
                 <br><br>
                 Surabaya,  {{date('d', strtotime($ba->created_at))}} 
                 &nbsp;{{ getBulan(date('m', strtotime($ba->created_at) )) }}

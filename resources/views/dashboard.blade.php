@@ -84,7 +84,7 @@
             <!-- ./col -->
         </div>
 
-         <div class="row">
+        <div class="row">
            <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header with-border">
@@ -105,7 +105,7 @@
                             <canvas class="canvas-chart" id="pieChart"></canvas>
                         </div>
 
-                        <h4 class="pull-right" style="color: #939694;">Total : {{ $totaluser }} user</h4>
+                        <h4 class="pull-right" style="color: #939694;">Total : <strong>{{ $totaluser }}</strong> user</h4>
                     </div>
 
                 </div>
@@ -131,8 +131,8 @@
                         <div class="chart">
                             <canvas class="canvas-chart" id="areaChart"></canvas>
                         </div>
-                        <h4 class="pull-left" style="color: #939694;">Periode : {{ $periode->year }}</h4>
-                        <h4 class="pull-right" style="color: #939694;">Total : {{ $totalpermintaanit  }} data</h4>
+                        <h4 class="pull-left" style="color: #939694;">Periode : <strong>{{ $periode->year }}</strong>, terdapat <strong>{{ $totalpermintaanit }}</strong> data</h4>
+                        <h4 class="pull-right" style="color: #939694;">Total : <strong>{{ $totalformits  }}</strong> data</h4>
 
                     </div>
                 </div>
@@ -394,7 +394,7 @@
             },
             options: {
             responsive: true, // Instruct chart js to respond nicely.
-            maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+            maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height 
             }
         });
         //end area chart
