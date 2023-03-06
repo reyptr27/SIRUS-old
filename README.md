@@ -1,2 +1,2 @@
 # sirus
-Sistem Informasi Sinar Roda Utama Surabaya
+Sistem Informasi Manajemen Sinar Roda Utama Surabaya
